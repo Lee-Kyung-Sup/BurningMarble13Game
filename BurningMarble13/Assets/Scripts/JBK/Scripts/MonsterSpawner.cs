@@ -4,24 +4,36 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    public GameObject[] monsterPrefabs; // 생성할 몬스터 프리팹 배열
-    public Transform[] spawnPoints; // 몬스터 스폰 위치 배열
+    [SerializeField]
+    private GameObject[] MonsterPrefabs;
+    [SerializeField]
+    private float spawnTime;
+    [SerializeField]
+    private Transform[] wayPoints;
+    [SerializeField]
+    private int maxSpawnCount = 30;
 
-    void Start()
+    private int currentSpawnCount = 0;
+    private void Awake()
     {
-        // 몬스터 생성
-        SpawnMonster();
+        StartCoroutine("SpawnMonster");
     }
 
-    void SpawnMonster()
+    private IEnumerator SpawnMonster()
     {
-        // 무작위로 몬스터 프리팹 선택
-        GameObject selectedMonsterPrefab = monsterPrefabs[Random.Range(0, monsterPrefabs.Length)];
+        while (currentSpawnCount < maxSpawnCount)
+        {
+            GameObject randomMonsterPrefab = MonsterPrefabs[Random.Range(0, MonsterPrefabs.Length)];
+            GameObject clone = Instantiate(randomMonsterPrefab);
 
-        // 무작위로 스폰 위치 선택
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Monster monster = clone.GetComponent<Monster>();
+            if (monster != null)
+            {
+                monster.Setup(wayPoints);
+                currentSpawnCount++;
+            }
 
-        // 몬스터 생성
-        Instantiate(selectedMonsterPrefab, spawnPoint.position, Quaternion.identity);
+            yield return new WaitForSeconds(spawnTime);
+        }
     }
 }
