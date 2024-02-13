@@ -34,7 +34,7 @@ public class WaveSystem : MonoBehaviour
     }
 
 
-    public void StageChoice(int stage)//MAINSECENE UI에서 버튼클릭하면
+    public void StageChoice(int stage)
     {
         switch (stage)
         {
@@ -51,11 +51,12 @@ public class WaveSystem : MonoBehaviour
                 return;
         }
 
-        button.SetActive(false);
     }
 
-    private void SetStage(int maxWave)
+    public void SetStage(int maxWave)
     {
+        button.SetActive(false);//게임씬 작업용 나중에 삭제
+
         MaxWave = maxWave;
         //웨이브당 체력증가수치 1=10 2=15 3=20
         //몬스터수

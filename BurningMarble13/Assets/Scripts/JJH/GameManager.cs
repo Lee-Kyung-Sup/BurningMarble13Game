@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public static int choioceStageNum;
+
+    private WaveSystem waveSystem;
+
     [HideInInspector]
     public long gold = 0;
 
@@ -13,6 +17,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        waveSystem = GetComponent<WaveSystem>();
+    }
+    private void Start()
+    {
+        waveSystem.StageChoice(choioceStageNum);
     }
 
     void Update()

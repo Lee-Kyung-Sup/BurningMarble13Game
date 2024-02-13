@@ -10,34 +10,37 @@ public class Stage : MonoBehaviour
     public GameObject selectStageTwo;
     public GameObject selectStageThree;
     public GameObject selectInfinityMode;
-    // Start is called before the first frame update
+
     void Start()
     {
         menuPlayStage.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ModeChoice(int mode)
     {
-        
+        switch (mode)
+        {
+            case 1:
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            case 2:
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            case 3:
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            //case 4://인피니티모드
+            //    SceneManager.LoadScene("GameScene");
+            //    GameManager.choioceStageNum = mode;
+            default:
+                return;
+        }
     }
 
-    public void StageOne()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void StageTwo()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void StageThree()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void InfinityMode()
+    public void InfinityMode()//나중에 무한모드 구현후삭제
     {
         SceneManager.LoadScene("GameScene");
     }
