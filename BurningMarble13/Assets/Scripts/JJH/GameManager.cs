@@ -56,6 +56,25 @@ public class GameManager : MonoBehaviour
             }   
     }*/
 
+    /*
+    강화 5단계
+    업그레이드 비용
+    1 > 2
+    20프로 증가
+    2 > 3
+    40프로 증가
+    3 > 4
+    65프로 증가
+    4 > 5
+    100프로 증가
+     
+     
+     
+     
+     
+     
+     */
+
     public void GameOverUIOpen()//임시 GameOverUI
     {
         gameOverUI.SetActive(true);

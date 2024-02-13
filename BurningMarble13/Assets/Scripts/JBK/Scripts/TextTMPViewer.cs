@@ -10,7 +10,6 @@ public class TextTMPViewer : MonoBehaviour
     [SerializeField]
     private WaveSystem waveSystem;
 
-    // Update is called once per frame
     void Update()
     {
         textWave.text = "Wave " + (waveSystem.currentWave) + " / " + waveSystem.MaxWave;
