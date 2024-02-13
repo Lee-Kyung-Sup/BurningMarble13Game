@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static public GameManager Instance;
+    public static GameManager Instance;
 
     [HideInInspector]
     public long gold = 0;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        /*if(만약 몬스터의 체력이 0이 되었을 때)
+        /*if(만약 몬스터의 체력이 0이 되었을 때)->이벤트 함수로 걸어두기?
         {
             PlusGold();
         }*/

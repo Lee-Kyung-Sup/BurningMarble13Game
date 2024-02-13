@@ -8,10 +8,16 @@ public class Monster : MonoBehaviour
     private Transform[] wayPoints;
     private int currentIndex = 0;
     private MonsterMovement movement;
+    private WaveSystem waveSystem;
 
     //수정
     [HideInInspector]
     public static int goalMonster = 0;
+
+    private void Awake()
+    {
+        //waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
+    }
 
     public void Setup(Transform[] spawnPoints)
     {
@@ -59,6 +65,8 @@ public class Monster : MonoBehaviour
             {
                 Debug.Log("GAMEOVER");
                 Time.timeScale = 0;
+                //waveSystem.NextWave();
+                
                 goalMonster = 0;
                 // GameOver;->UI필요
                 // UI뜨고 MAINSCENE이동

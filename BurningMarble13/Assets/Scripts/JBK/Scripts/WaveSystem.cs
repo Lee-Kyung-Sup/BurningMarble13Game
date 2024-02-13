@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -14,13 +15,15 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     public GameObject[] Road;
 
+    public GameObject button;
+
 
     void Update()
     {
         // maxSpawnCount == currenSpawnCount
-        // 웨이브가 1증가
-        // 맥스웨이브 == 현재웨이브 ->게임승리
-        // 목숨이 3개 사라지면 게임오버
+        // 웨이브가 1증가 
+        // 맥스웨이브 == 현재웨이브 ->게임승리-> wavesystem
+        // 목숨이 3개 사라지면 게임오버-> monster에 구현
         //
 
         if(MaxWave<currentWave)//스테이지종료
@@ -47,6 +50,8 @@ public class WaveSystem : MonoBehaviour
             default:
                 return;
         }
+
+        button.SetActive(false);
     }
 
     private void SetStage(int maxWave)
