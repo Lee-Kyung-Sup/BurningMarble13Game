@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public long gold = 0;
 
+    [HideInInspector]
+    public static int killMonster;
+
 
     private void Awake()
     {

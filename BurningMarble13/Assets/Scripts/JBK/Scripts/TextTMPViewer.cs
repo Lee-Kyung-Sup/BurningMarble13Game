@@ -12,6 +12,6 @@ public class TextTMPViewer : MonoBehaviour
 
     void Update()
     {
-        textWave.text = "Wave " + (waveSystem.currentWave) + " / " + waveSystem.MaxWave;
+        textWave.text = "Wave " + (WaveSystem.currentWave) + " / " + waveSystem.MaxWave;
     }
 }

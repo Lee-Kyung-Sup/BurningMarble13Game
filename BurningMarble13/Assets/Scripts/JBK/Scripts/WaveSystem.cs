@@ -9,8 +9,11 @@ public class WaveSystem : MonoBehaviour
     public int MaxWave = 0;
 
     [HideInInspector]
-    public int currentWave = 1;//텍스트로 나올때 +1하기위해
+    public static int currentWave = 1;//텍스트로 나올때 +1하기위해
     //public int CurrentWaveIndex => currentWaveIndex + 1;//현재웨이브//읽기전용
+
+    [HideInInspector]
+    public static int plusHP = 0;
 
     [SerializeField]
     public GameObject[] Road;
@@ -62,6 +65,7 @@ public class WaveSystem : MonoBehaviour
         button.SetActive(false);//게임씬 작업용 나중에 삭제
 
         MaxWave = maxWave;
+        plusHP = maxWave;
         //웨이브당 체력증가수치 1=10 2=15 3=20
         //몬스터수
 
@@ -75,7 +79,6 @@ public class WaveSystem : MonoBehaviour
     public void NextWave()
     {
         currentWave++;
-
     }
 
 

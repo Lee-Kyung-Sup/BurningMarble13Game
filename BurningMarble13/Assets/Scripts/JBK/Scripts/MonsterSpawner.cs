@@ -26,10 +26,10 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Monster.killMonster == maxSpawnCount)
+        if (GameManager.killMonster == maxSpawnCount)
         {
             waveSystem.NextWave();
-            Monster.killMonster = 0;
+            GameManager.killMonster = 0;
             StopAllCoroutines();
             Invoke("SpawnStart", 3);
         }
@@ -51,8 +51,11 @@ public class MonsterSpawner : MonoBehaviour
             Monster monster = clone.GetComponent<Monster>();
             if (monster != null)
             {
+                monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave);
                 monster.Setup(wayPoints);
                 currentSpawnCount++;
+
+                Debug.Log(monster.hp);
             }
 
             yield return new WaitForSeconds(spawnTime);

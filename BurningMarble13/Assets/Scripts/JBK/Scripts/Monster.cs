@@ -9,14 +9,13 @@ public class Monster : MonoBehaviour
     private int currentIndex = 0;
     private MonsterMovement movement;
     //**private WaveSystem waveSystem;    
-    private float hp = 10;
 
-    //수정
+    
+    public float hp = 0;
+    //왜째서 나는 0으로 저장했건만
+
     [HideInInspector]
     public static int goalMonster = 0;
-
-    [HideInInspector]
-    public static int killMonster;
 
     private void Awake()
     {
@@ -76,7 +75,6 @@ public class Monster : MonoBehaviour
                 Debug.Log("GAMEOVER");
                 Time.timeScale = 0;
                 GameManager.Instance.GameOverUIOpen();//임시 GameOverUI
-                //**waveSystem.NextWave();
 
                 goalMonster = 0;
             }
@@ -92,9 +90,8 @@ public class Monster : MonoBehaviour
         if(hp <= 0)
         {
             Destroy(gameObject);
-            killMonster++;
-            Debug.Log(killMonster);            
+            GameManager.killMonster++;
+            Debug.Log(GameManager.killMonster);            
         }
     }
-
 }
