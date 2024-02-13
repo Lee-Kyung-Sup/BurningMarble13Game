@@ -9,13 +9,18 @@ public class WaveSystem : MonoBehaviour
     public int MaxWave = 0;
 
     [HideInInspector]
-    public int currentWave = 1;//텍스트로 나올때 +1하기위해
+    public static int currentWave = 1;//텍스트로 나올때 +1하기위해
     //public int CurrentWaveIndex => currentWaveIndex + 1;//현재웨이브//읽기전용
+
+    [HideInInspector]
+    public static int plusHP = 0;
 
     [SerializeField]
     public GameObject[] Road;
 
     public GameObject button;//임시
+
+    private MonsterSpawner monsterSpawner;
 
 
     void Update()
@@ -26,15 +31,17 @@ public class WaveSystem : MonoBehaviour
         // 목숨이 3개 사라지면 게임오버-> monster에 구현
         //
 
-        if(MaxWave<currentWave)//스테이지종료
+        if (MaxWave < currentWave)//스테이지종료
         {
             //WIN UI OPEN-> Main으로 돌아가기, 다시하기
         }
-        
+
+
+
     }
 
 
-    public void StageChoice(int stage)//MAINSECENE UI에서 버튼클릭하면
+    public void StageChoice(int stage)
     {
         switch (stage)
         {
@@ -51,12 +58,14 @@ public class WaveSystem : MonoBehaviour
                 return;
         }
 
-        button.SetActive(false);
     }
 
-    private void SetStage(int maxWave)
+    public void SetStage(int maxWave)
     {
+        button.SetActive(false);//게임씬 작업용 나중에 삭제
+
         MaxWave = maxWave;
+        plusHP = maxWave;
         //웨이브당 체력증가수치 1=10 2=15 3=20
         //몬스터수
 
@@ -64,6 +73,7 @@ public class WaveSystem : MonoBehaviour
         Debug.Log(random + "번 Road");
 
         Road[random].SetActive(true);
+        monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
     }
 
     public void NextWave()

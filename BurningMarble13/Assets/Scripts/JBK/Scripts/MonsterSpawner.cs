@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -11,31 +12,38 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private Transform[] wayPoints;
 
-    [HideInInspector]   
-    public int maxSpawnCount = 20;
+    [HideInInspector]
+    public int maxSpawnCount = 10;
 
     private int currentSpawnCount = 0;
 
+    private WaveSystem waveSystem;
+
     private void Start()
     {
+        waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
         Invoke("SpawnStart", 3);
+    }
+
+    private void Update()
+    {
+        if (GameManager.killMonster == maxSpawnCount)
+        {
+            waveSystem.NextWave();
+            GameManager.killMonster = 0;
+            StopAllCoroutines();
+            Invoke("SpawnStart", 3);
+        }
     }
 
     public void SpawnStart()
     {
+        currentSpawnCount = 0;
         StartCoroutine("SpawnMonster");
     }
 
     private IEnumerator SpawnMonster()
     {
-        //수정
-        if (currentSpawnCount == maxSpawnCount )
-        {
-            StopCoroutine("SpawnMonster");
-            currentSpawnCount = 0;
-        }
-        //
-
         while (currentSpawnCount < maxSpawnCount)
         {
             GameObject randomMonsterPrefab = MonsterPrefabs[Random.Range(0, MonsterPrefabs.Length)];
@@ -44,11 +52,31 @@ public class MonsterSpawner : MonoBehaviour
             Monster monster = clone.GetComponent<Monster>();
             if (monster != null)
             {
+                monster.mobType = MakeMobType();
+                if (monster.mobType == MobType.Small)
+                    monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave);
+                else if (monster.mobType == MobType.Big)
+                    monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave) + 300;
+
                 monster.Setup(wayPoints);
                 currentSpawnCount++;
+
+                Debug.Log(monster.hp);
+                Debug.Log(monster.mobType);
             }
 
             yield return new WaitForSeconds(spawnTime);
         }
+    }
+
+    private MobType MakeMobType()//난이도조절도가능
+    {
+        if (WaveSystem.currentWave >= 2)
+        {
+            float temp = Random.Range(0, waveSystem.MaxWave + 5);
+            if (temp == waveSystem.MaxWave)
+                return MobType.Big;
+        }
+        return MobType.Small;
     }
 }

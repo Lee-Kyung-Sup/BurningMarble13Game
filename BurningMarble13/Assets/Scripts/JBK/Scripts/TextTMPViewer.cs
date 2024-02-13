@@ -8,11 +8,25 @@ public class TextTMPViewer : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textWave;
     [SerializeField]
+    private TextMeshProUGUI textGold;
+
+    [SerializeField]
     private WaveSystem waveSystem;
 
-    // Update is called once per frame
     void Update()
     {
-        textWave.text = "Wave " + (waveSystem.currentWave) + " / " + waveSystem.MaxWave;
+        TextWave();
+        TextGold();
+    }
+
+    private void TextWave()
+    {
+        textWave.text = "WAVE " + (WaveSystem.currentWave) + " / " + waveSystem.MaxWave;
+    }
+    private void TextGold()
+    {
+        int gold = GameManager.Instance.gold;
+
+        textGold.text = gold.ToString();
     }
 }

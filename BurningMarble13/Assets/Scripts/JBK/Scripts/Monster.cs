@@ -8,15 +8,25 @@ public class Monster : MonoBehaviour
     private Transform[] wayPoints;
     private int currentIndex = 0;
     private MonsterMovement movement;
-    //**private WaveSystem waveSystem;
+    //**private WaveSystem waveSystem;    
 
-    //수정
+    [HideInInspector]
+    public GameManager.MobType mobType;
+    
+    public float hp = 0;
+    //왜째서 나는 0으로 저장했건만
+
     [HideInInspector]
     public static int goalMonster = 0;
 
     private void Awake()
     {
         //**waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
+    }
+
+    private void Update()
+    {
+        Damage();//kill대신 자동damge
     }
 
     public void Setup(Transform[] spawnPoints)
@@ -58,18 +68,18 @@ public class Monster : MonoBehaviour
         else
         {
             goalMonster++;
+            GameManager.Instance.Life(goalMonster - 1);
             // 목숨 오브젝트도 한개씩 삭제
             // 경섭님 GameScene UI 만들어주세요! 필요해요! 하트포함! 목숨 은 하나씩 삭제할수있게
+            // 만듬
 
             if (goalMonster == 3)
             {
                 Debug.Log("GAMEOVER");
                 Time.timeScale = 0;
-                //**waveSystem.NextWave();
-                
+                GameManager.Instance.GameOverUIOpen();//임시 GameOverUI
+
                 goalMonster = 0;
-                // GameOver;->UI필요
-                // UI뜨고 MAINSCENE이동
             }
             Destroy(gameObject);               
             
@@ -77,22 +87,15 @@ public class Monster : MonoBehaviour
         }
     }
 
-    /*
-    강화 5단계
-    업그레이드 비용
-    1 > 2
-    20프로 증가
-    2 > 3
-    40프로 증가
-    3 > 4
-    65프로 증가
-    4 > 5
-    100프로 증가
-     
-     
-     
-     
-     
-     
-     */
+    public void Damage()//kill대신 자동damge
+    {
+        hp -= (5 * Time.deltaTime);
+        if(hp <= 0)
+        {
+            GameManager.killMonster++;
+            GameManager.Instance.PlusGold(mobType);
+            Debug.Log(GameManager.killMonster);            
+            Destroy(gameObject);
+        }
+    }
 }

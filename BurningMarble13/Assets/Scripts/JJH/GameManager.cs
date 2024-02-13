@@ -1,43 +1,91 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [HideInInspector]
-    public long gold = 0;
+    public static int choioceStageNum;
 
+    private WaveSystem waveSystem;
+
+    [SerializeField]
+    private GameObject gameOverUI;//임시 GameOverUI
+    [SerializeField]
+    private Image[] life;
+
+    [HideInInspector]
+    public int gold = 0;
+
+    [HideInInspector]
+    public static int killMonster;
+
+
+    public enum MobType
+    {
+        Small = 0,
+        Big,
+        Boss,
+    }
 
     private void Awake()
     {
         Instance = this;
+        waveSystem = GetComponent<WaveSystem>();
+    }
+    private void Start()
+    {
+        waveSystem.StageChoice(choioceStageNum);
+        gold = 200;
     }
 
     void Update()
     {
-        /*if(만약 몬스터의 체력이 0이 되었을 때)->이벤트 함수로 걸어두기?
-        {
-            PlusGold();
-        }*/
+
     }
 
-    /* public void PlusGold()
+    /*
+    강화 5단계
+    업그레이드 비용
+    1 > 2
+    20프로 증가
+    2 > 3
+    40프로 증가
+    3 > 4
+    65프로 증가
+    4 > 5
+    100프로 증가
+     
+     */
+
+    public void PlusGold(MobType type)
     {
-         switch(몬스터 종류(타입))
-            {
-                case 소형:
-                    gold += 10;
-                    break;
-                case 대형:
-                    gold += 20;
-                    break;
-                case 보스:
-                    gold += 30;
-                    break;
-            }   
-    }*/
+        switch (type)
+        {
+            case MobType.Small:
+                gold += 20;
+                break;
+            case MobType.Big:
+                gold += 30;
+                break;
+            case MobType.Boss:
+                gold += 50;
+                break;
+        }
+    }
 
 
+    public void GameOverUIOpen()//임시 GameOverUI
+    {
+        gameOverUI.SetActive(true);
+    }
+
+    public void Life(int count)
+    {
+        life[count].color = Color.black;
+    }
 }
