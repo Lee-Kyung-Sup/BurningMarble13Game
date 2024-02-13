@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class MonsterSpawner : MonoBehaviour
     private WaveSystem waveSystem;
 
     private void Start()
-    {        
+    {
         waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
         Invoke("SpawnStart", 3);
     }
@@ -51,14 +52,27 @@ public class MonsterSpawner : MonoBehaviour
             Monster monster = clone.GetComponent<Monster>();
             if (monster != null)
             {
+                monster.mobType = MakeMobType();
                 monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave);
                 monster.Setup(wayPoints);
                 currentSpawnCount++;
 
                 Debug.Log(monster.hp);
+                Debug.Log(monster.mobType);
             }
 
             yield return new WaitForSeconds(spawnTime);
         }
+    }
+
+    private MobType MakeMobType()//난이도조절도가능
+    {
+        if (WaveSystem.currentWave >= 2)
+        {
+            float temp = Random.Range(0, waveSystem.MaxWave + 6);
+            if (temp >= waveSystem.MaxWave)
+                return MobType.Big;
+        }
+        return MobType.Small;
     }
 }

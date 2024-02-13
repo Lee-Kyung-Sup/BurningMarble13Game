@@ -19,11 +19,18 @@ public class GameManager : MonoBehaviour
     private Image[] life;
 
     [HideInInspector]
-    public long gold = 0;
+    public int gold = 0;
 
     [HideInInspector]
     public static int killMonster;
 
+
+    public enum MobType
+    {
+        Small = 0,
+        Big,
+        Boss,
+    }
 
     private void Awake()
     {
@@ -33,31 +40,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         waveSystem.StageChoice(choioceStageNum);
+        gold = 200;
     }
 
     void Update()
     {
-        /*if(만약 몬스터의 체력이 0이 되었을 때)->이벤트 함수로 걸어두기?
-        {
-            PlusGold();
-        }*/
-    }
 
-    /* public void PlusGold()
-    {
-         switch(몬스터 종류(타입))
-            {
-                case 소형:
-                    gold += 10;
-                    break;
-                case 대형:
-                    gold += 20;
-                    break;
-                case 보스:
-                    gold += 30;
-                    break;
-            }   
-    }*/
+    }
 
     /*
     강화 5단계
@@ -71,12 +60,24 @@ public class GameManager : MonoBehaviour
     4 > 5
     100프로 증가
      
-     
-     
-     
-     
-     
      */
+
+    public void PlusGold(MobType type)
+    {
+        switch (type)
+        {
+            case MobType.Small:
+                gold += 20;
+                break;
+            case MobType.Big:
+                gold += 30;
+                break;
+            case MobType.Boss:
+                gold += 50;
+                break;
+        }
+    }
+
 
     public void GameOverUIOpen()//임시 GameOverUI
     {

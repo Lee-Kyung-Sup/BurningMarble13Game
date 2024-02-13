@@ -10,6 +10,8 @@ public class Monster : MonoBehaviour
     private MonsterMovement movement;
     //**private WaveSystem waveSystem;    
 
+    [HideInInspector]
+    public GameManager.MobType mobType;
     
     public float hp = 0;
     //왜째서 나는 0으로 저장했건만
@@ -69,6 +71,7 @@ public class Monster : MonoBehaviour
             GameManager.Instance.Life(goalMonster - 1);
             // 목숨 오브젝트도 한개씩 삭제
             // 경섭님 GameScene UI 만들어주세요! 필요해요! 하트포함! 목숨 은 하나씩 삭제할수있게
+            // 만듬
 
             if (goalMonster == 3)
             {
@@ -89,9 +92,10 @@ public class Monster : MonoBehaviour
         hp -= (5 * Time.deltaTime);
         if(hp <= 0)
         {
-            Destroy(gameObject);
             GameManager.killMonster++;
+            GameManager.Instance.PlusGold(mobType);
             Debug.Log(GameManager.killMonster);            
+            Destroy(gameObject);
         }
     }
 }
