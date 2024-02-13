@@ -4,46 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-    [SerializeField]
-    private GameObject Road1;
-    [SerializeField]
-    private GameObject Road2;
-    [SerializeField]
-    private GameObject Road3;
-    [SerializeField]
-    private GameObject Road4;
+    public static GameManager Instance;
 
     [HideInInspector]
     public long gold = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        int random = Random.Range(1, 4);
-        Debug.Log(random);
 
-        switch(random)
-        {
-            case 1:
-                Road1.SetActive(true);
-                break;
-            case 2:
-                Road2.SetActive(true);
-                break;
-            case 3:
-                Road3.SetActive(true);
-                break;
-            case 4:
-                Road4.SetActive(true);
-                break;
-        }
+    private void Awake()
+    {
+        Instance = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*if(¸¸¾à ¸ó½ºÅÍÀÇ Ã¼·ÂÀÌ 0ÀÌ µÇ¾úÀ» ¶§)
+        /*if(ë§Œì•½ ëª¬ìŠ¤í„°ì˜ ì²´ë ¥ì´ 0ì´ ë˜ì—ˆì„ ë•Œ)->ì´ë²¤íŠ¸ í•¨ìˆ˜ë¡œ ê±¸ì–´ë‘ê¸°?
         {
             PlusGold();
         }*/
@@ -51,17 +25,19 @@ public class GameManager : MonoBehaviour
 
     /* public void PlusGold()
     {
-         switch(¸ó½ºÅÍ Á¾·ù(Å¸ÀÔ))
+         switch(ëª¬ìŠ¤í„° ì¢…ë¥˜(íƒ€ì…))
             {
-                case ¼ÒÇü:
+                case ì†Œí˜•:
                     gold += 10;
                     break;
-                case ´ëÇü:
+                case ëŒ€í˜•:
                     gold += 20;
                     break;
-                case º¸½º:
+                case ë³´ìŠ¤:
                     gold += 30;
                     break;
             }   
     }*/
+
+
 }

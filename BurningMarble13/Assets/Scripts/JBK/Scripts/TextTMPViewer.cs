@@ -13,6 +13,6 @@ public class TextTMPViewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textWave.text = "Wave " + waveSystem.CurrentWaveIndex + " / " + waveSystem.MaxWave;
+        textWave.text = "Wave " + (waveSystem.currentWave) + " / " + waveSystem.MaxWave;
     }
 }
