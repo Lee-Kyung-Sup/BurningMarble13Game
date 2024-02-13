@@ -590,13 +590,13 @@ MonoBehaviour:
   wayPoints:
   - {fileID: 6776550757652525497}
   - {fileID: 1860570311478617179}
-  - {fileID: 5741663775281510464}
+  - {fileID: 5049133482661744967}
   - {fileID: 6589959709623723836}
   - {fileID: 702361501169915552}
   - {fileID: 9006964947309833719}
   - {fileID: 3436519869169424766}
   - {fileID: 8093128627970028866}
-  - {fileID: 6908586455190280242}
+  - {fileID: 6222961114641428809}
   - {fileID: 1814246970765442443}
   - {fileID: 7769179314886086760}
   - {fileID: 7744319667225417259}
@@ -634,13 +634,13 @@ Transform:
   m_Children:
   - {fileID: 6776550757652525497}
   - {fileID: 1860570311478617179}
-  - {fileID: 5741663775281510464}
+  - {fileID: 5049133482661744967}
   - {fileID: 6589959709623723836}
   - {fileID: 702361501169915552}
   - {fileID: 9006964947309833719}
   - {fileID: 3436519869169424766}
   - {fileID: 8093128627970028866}
-  - {fileID: 6908586455190280242}
+  - {fileID: 6222961114641428809}
   - {fileID: 1814246970765442443}
   - {fileID: 7769179314886086760}
   - {fileID: 7744319667225417259}
@@ -1203,7 +1203,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1aa5d4cb6e52a4396b3c03639193fb, type: 3}
---- !u!4 &5741663775281510464 stripped
+--- !u!4 &5049133482661744967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 701537822874823032, guid: ff1aa5d4cb6e52a4396b3c03639193fb,
     type: 3}
@@ -1440,7 +1440,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1aa5d4cb6e52a4396b3c03639193fb, type: 3}
---- !u!4 &6908586455190280242 stripped
+--- !u!4 &6222961114641428809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 701537822874823032, guid: ff1aa5d4cb6e52a4396b3c03639193fb,
     type: 3}

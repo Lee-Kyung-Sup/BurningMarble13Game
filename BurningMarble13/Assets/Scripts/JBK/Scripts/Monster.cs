@@ -8,15 +8,24 @@ public class Monster : MonoBehaviour
     private Transform[] wayPoints;
     private int currentIndex = 0;
     private MonsterMovement movement;
-    //**private WaveSystem waveSystem;
+    //**private WaveSystem waveSystem;    
+    private float hp = 10;
 
     //수정
     [HideInInspector]
     public static int goalMonster = 0;
 
+    [HideInInspector]
+    public static int killMonster;
+
     private void Awake()
     {
         //**waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
+    }
+
+    private void Update()
+    {
+        Damage();//kill대신 자동damge
     }
 
     public void Setup(Transform[] spawnPoints)
@@ -58,6 +67,7 @@ public class Monster : MonoBehaviour
         else
         {
             goalMonster++;
+            GameManager.Instance.Life(goalMonster - 1);
             // 목숨 오브젝트도 한개씩 삭제
             // 경섭님 GameScene UI 만들어주세요! 필요해요! 하트포함! 목숨 은 하나씩 삭제할수있게
 
@@ -65,15 +75,25 @@ public class Monster : MonoBehaviour
             {
                 Debug.Log("GAMEOVER");
                 Time.timeScale = 0;
+                GameManager.Instance.GameOverUIOpen();//임시 GameOverUI
                 //**waveSystem.NextWave();
-                
+
                 goalMonster = 0;
-                // GameOver;->UI필요
-                // UI뜨고 MAINSCENE이동
             }
             Destroy(gameObject);               
             
             Debug.Log(goalMonster);
+        }
+    }
+
+    public void Damage()//kill대신 자동damge
+    {
+        hp -= (5 * Time.deltaTime);
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+            killMonster++;
+            Debug.Log(killMonster);            
         }
     }
 

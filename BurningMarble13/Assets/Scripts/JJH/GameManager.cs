@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +12,11 @@ public class GameManager : MonoBehaviour
     public static int choioceStageNum;
 
     private WaveSystem waveSystem;
+
+    [SerializeField]
+    private GameObject gameOverUI;//임시 GameOverUI
+    [SerializeField]
+    private Image[] life;
 
     [HideInInspector]
     public long gold = 0;
@@ -48,5 +56,13 @@ public class GameManager : MonoBehaviour
             }   
     }*/
 
+    public void GameOverUIOpen()//임시 GameOverUI
+    {
+        gameOverUI.SetActive(true);
+    }
 
+    public void Life(int count)
+    {
+        life[count].color = Color.black;
+    }
 }

@@ -17,6 +17,8 @@ public class WaveSystem : MonoBehaviour
 
     public GameObject button;//임시
 
+    private MonsterSpawner monsterSpawner;
+
 
     void Update()
     {
@@ -26,11 +28,13 @@ public class WaveSystem : MonoBehaviour
         // 목숨이 3개 사라지면 게임오버-> monster에 구현
         //
 
-        if(MaxWave<currentWave)//스테이지종료
+        if (MaxWave < currentWave)//스테이지종료
         {
             //WIN UI OPEN-> Main으로 돌아가기, 다시하기
         }
-        
+
+
+
     }
 
 
@@ -65,11 +69,13 @@ public class WaveSystem : MonoBehaviour
         Debug.Log(random + "번 Road");
 
         Road[random].SetActive(true);
+        monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
     }
 
     public void NextWave()
     {
         currentWave++;
+
     }
 
 
