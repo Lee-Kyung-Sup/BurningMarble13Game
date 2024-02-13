@@ -15,7 +15,7 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     public GameObject[] Road;
 
-    public GameObject button;
+    public GameObject button;//임시
 
 
     void Update()
