@@ -10,17 +10,32 @@ public class MonsterSpawner : MonoBehaviour
     private float spawnTime;
     [SerializeField]
     private Transform[] wayPoints;
-    [SerializeField]
-    private int maxSpawnCount = 20;
+
+    [HideInInspector]   
+    public int maxSpawnCount = 20;
 
     private int currentSpawnCount = 0;
-    private void Awake()
+
+    private void Start()
+    {
+        Invoke("SpawnStart", 3);
+    }
+
+    public void SpawnStart()
     {
         StartCoroutine("SpawnMonster");
     }
 
     private IEnumerator SpawnMonster()
     {
+        //수정
+        if (currentSpawnCount == maxSpawnCount )
+        {
+            StopCoroutine("SpawnMonster");
+            currentSpawnCount = 0;
+        }
+        //
+
         while (currentSpawnCount < maxSpawnCount)
         {
             GameObject randomMonsterPrefab = MonsterPrefabs[Random.Range(0, MonsterPrefabs.Length)];

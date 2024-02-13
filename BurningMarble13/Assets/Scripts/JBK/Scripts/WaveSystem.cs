@@ -4,22 +4,67 @@ using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
 {
-    [SerializeField]
-    private Wave[] waves;
-    [SerializeField]
-    private int currentWaveIndex = -1;
-    public int CurrentWaveIndex => currentWaveIndex + 1;
-    public int MaxWave => waves.Length;
+    [HideInInspector]
+    public int MaxWave = 0;
 
-    // Update is called once per frame
+    [HideInInspector]
+    public int currentWave = 1;//텍스트로 나올때 +1하기위해
+    //public int CurrentWaveIndex => currentWaveIndex + 1;//현재웨이브//읽기전용
+
+    [SerializeField]
+    public GameObject[] Road;
+
+
     void Update()
     {
+        // maxSpawnCount == currenSpawnCount
+        // 웨이브가 1증가
+        // 맥스웨이브 == 현재웨이브 ->게임승리
+        // 목숨이 3개 사라지면 게임오버
+        //
+
+        if(MaxWave<currentWave)//스테이지종료
+        {
+            //WIN UI OPEN-> Main으로 돌아가기, 다시하기
+        }
         
     }
-}
 
-[System.Serializable]
-public struct Wave
-{
-    
+
+    public void StageChoice(int stage)//MAINSECENE UI에서 버튼클릭하면
+    {
+        switch (stage)
+        {
+            case 1:
+                SetStage(10);
+                break;
+            case 2:
+                SetStage(15);
+                break;
+            case 3:
+                SetStage(20);
+                break;
+            default:
+                return;
+        }
+    }
+
+    private void SetStage(int maxWave)
+    {
+        MaxWave = maxWave;
+        //웨이브당 체력증가수치 1=10 2=15 3=20
+        //몬스터수
+
+        int random = Random.Range(0, Road.Length);
+        Debug.Log(random + "번 Road");
+
+        Road[random].SetActive(true);
+    }
+
+    public void NextWave()
+    {
+        currentWave++;
+    }
+
+
 }
