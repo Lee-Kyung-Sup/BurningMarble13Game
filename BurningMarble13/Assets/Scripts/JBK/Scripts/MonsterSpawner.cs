@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private Transform[] wayPoints;
     [SerializeField]
-    private int maxSpawnCount = 30;
+    private int maxSpawnCount = 20;
 
     private int currentSpawnCount = 0;
     private void Awake()
