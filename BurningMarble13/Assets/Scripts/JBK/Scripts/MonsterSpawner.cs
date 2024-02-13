@@ -53,7 +53,11 @@ public class MonsterSpawner : MonoBehaviour
             if (monster != null)
             {
                 monster.mobType = MakeMobType();
-                monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave);
+                if (monster.mobType == MobType.Small)
+                    monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave);
+                else if (monster.mobType == MobType.Big)
+                    monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave) + 300;
+
                 monster.Setup(wayPoints);
                 currentSpawnCount++;
 
@@ -69,8 +73,8 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (WaveSystem.currentWave >= 2)
         {
-            float temp = Random.Range(0, waveSystem.MaxWave + 6);
-            if (temp >= waveSystem.MaxWave)
+            float temp = Random.Range(0, waveSystem.MaxWave + 5);
+            if (temp == waveSystem.MaxWave)
                 return MobType.Big;
         }
         return MobType.Small;
