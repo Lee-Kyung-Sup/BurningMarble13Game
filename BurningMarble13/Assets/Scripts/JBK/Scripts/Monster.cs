@@ -67,9 +67,20 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            goalMonster++; //몬스터골에
-            GameManager.killMonster++; // 하트가 삭제되면 KillMonster 1증가
-            GameManager.Instance.Life(goalMonster - 1);
+            if(mobType == GameManager.MobType.Boss)
+            {
+                goalMonster = goalMonster + 2;
+                GameManager.killMonster++; // 하트가 삭제되면 KillMonster 1증가
+                GameManager.Instance.Life(goalMonster - 2);
+                GameManager.Instance.Life(goalMonster - 1);
+            }
+            else
+            {
+                goalMonster++; //몬스터골에
+                GameManager.killMonster++; // 하트가 삭제되면 KillMonster 1증가
+                GameManager.Instance.Life(goalMonster - 1);
+            }
+
             // 목숨 오브젝트도 한개씩 삭제
             // 경섭님 GameScene UI 만들어주세요! 필요해요! 하트포함! 목숨 은 하나씩 삭제할수있게
             // 만듬
@@ -91,7 +102,7 @@ public class Monster : MonoBehaviour
 
     public void Damage()//kill대신 자동damge
     {
-        hp -= (5 * Time.deltaTime);
+        hp -= (10 * Time.deltaTime);
         if(hp <= 0)
         {
             GameManager.killMonster++;
