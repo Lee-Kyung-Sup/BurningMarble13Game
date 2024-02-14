@@ -31,13 +31,11 @@ public class MonsterSpawner : MonoBehaviour
         // 그래서 다음 Wave로 안넘어가는 문제 발생
         if (GameManager.killMonster == maxSpawnCount)
         {
-            //GameManager.killMonster = 0; using static GameManager
-            killMonster = 0;
             waveSystem.NextWave();
+            GameManager.killMonster = 0;
             StopAllCoroutines();
             Invoke("SpawnStart", 3);
         }
-
     }
 
     public void SpawnStart()
@@ -73,7 +71,7 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    private MobType MakeMobType()//난이도조절도가능//인피니트모드용 난이도만들어야함
+    private MobType MakeMobType()//난이도조절도가능
     {
         if (WaveSystem.currentWave >= 2)
         {
