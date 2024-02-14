@@ -102,8 +102,8 @@ public class WaveSystem : MonoBehaviour
 
         plusHP = 10; // 기본 체력
 
-        if (currentWave % 5 == 0)//5웨이브마다
-            plusHP += 5;
+        if (currentWave % 5 == 0)//5웨이브마다     //인피니티모드 체력증가
+            plusHP += 5;                          //인피니티모드 체력증가
 
         if (GameManager.isReplay == false)
         {
