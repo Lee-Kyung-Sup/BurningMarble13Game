@@ -31,7 +31,7 @@ public class WaveSystem : MonoBehaviour
         // 목숨이 3개 사라지면 게임오버-> monster에 구현
         //
 
-        if (MaxWave < currentWave)//스테이지종료
+        if (MaxWave == currentWave )//스테이지종료
         {
             //WIN UI OPEN-> Main으로 돌아가기, 다시하기
         }

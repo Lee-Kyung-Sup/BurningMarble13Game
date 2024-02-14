@@ -31,11 +31,13 @@ public class MonsterSpawner : MonoBehaviour
         // 그래서 다음 Wave로 안넘어가는 문제 발생
         if (GameManager.killMonster == maxSpawnCount)
         {
+            //GameManager.killMonster = 0; using static GameManager
+            killMonster = 0;
             waveSystem.NextWave();
-            GameManager.killMonster = 0;
             StopAllCoroutines();
             Invoke("SpawnStart", 3);
         }
+
     }
 
     public void SpawnStart()
