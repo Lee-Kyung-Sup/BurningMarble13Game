@@ -77,6 +77,7 @@ public class Monster : MonoBehaviour
             if (goalMonster == 3)
             {
                 Debug.Log("GAMEOVER");
+                StopAllCoroutines();
                 Time.timeScale = 0;
                 GameManager.Instance.GameOverUIOpen();//임시 GameOverUI
 

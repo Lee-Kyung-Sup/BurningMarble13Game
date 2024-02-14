@@ -26,9 +26,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static int killMonster;
 
-
     public GameObject mainMenuBtn;
     public GameObject replayBtn;
+
+    [HideInInspector]
+    public static bool isReplay = false;
+    [HideInInspector]
+    public static int randomRoad;
 
     public enum MobType
     {
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
+        Time.timeScale = 1;
         waveSystem.StageChoice(choioceStageNum);
         gold = 200;
     }
@@ -92,12 +96,18 @@ public class GameManager : MonoBehaviour
 
     public void GameOverUIMainMenuBtn()
     {
+        StopAllCoroutines();
         SceneManager.LoadScene("MainMenu");
+        isReplay = false;
+        killMonster = 0;
     }
 
     public void GameOverUIReplayBtn()
     {
+        StopAllCoroutines();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        isReplay = true;
+        killMonster = 0;
     }
     public void Life(int count)
     {

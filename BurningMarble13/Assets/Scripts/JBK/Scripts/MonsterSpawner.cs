@@ -23,6 +23,7 @@ public class MonsterSpawner : MonoBehaviour
     private void Start()
     {
         waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
+        StopAllCoroutines();
         Invoke("SpawnStart", 3);
     }
 
