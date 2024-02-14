@@ -21,9 +21,9 @@ public class TextTMPViewer : MonoBehaviour
 
     private void TextWave()
     {
-        //if¹® »ç¿ë
-        // ÀÎÇÇ´ÏÆ¼¸ðµå¸¦ ¼±ÅÃÇÏ¸é MaxWave°¡ ???·Î º¯°æ(ÀÓ½Ã)
-        // ÀÎÇÇ´ÏÆ¼ ¸ðµå°¡ intÀÇ ÃÖ´ë°ªÀÌ¶ó 100ÀÌ»óÀ¸·Î ¼³Á¤(ÀÓ½Ã)
+        //ifë¬¸ ì‚¬ìš©
+        // ì¸í”¼ë‹ˆí‹°ëª¨ë“œë¥¼ ì„ íƒí•˜ë©´ MaxWaveê°€ ???ë¡œ ë³€ê²½(ìž„ì‹œ)
+        // ì¸í”¼ë‹ˆí‹° ëª¨ë“œê°€ intì˜ ìµœëŒ€ê°’ì´ë¼ 100ì´ìƒìœ¼ë¡œ ì„¤ì •(ìž„ì‹œ)
         if(waveSystem.MaxWave >= 100)
         {
             textWave.text = "WAVE " + (WaveSystem.currentWave) + " / ???";
