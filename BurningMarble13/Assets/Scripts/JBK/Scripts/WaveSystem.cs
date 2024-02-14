@@ -113,6 +113,10 @@ public class WaveSystem : MonoBehaviour
             Road[random].SetActive(true);
             monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
         }
+        else
+        {
+            Road[GameManager.randomRoad].SetActive(true);
+        }
     }
 
     public void NextWave()
