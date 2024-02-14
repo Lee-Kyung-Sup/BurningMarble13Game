@@ -25,6 +25,7 @@ public class Marble : MonoBehaviour
     public Transform testMonster;
     public float attackRange;
     
+    
     void Attack()
     {
         //투사체가 생성되고(날라감)
@@ -58,4 +59,16 @@ public class Marble : MonoBehaviour
         
     }
 
+    void Marble_Fire()
+    {
+        //기본공격시 타겟주변으로 스플래시 화염데이지(범위딜)
+        
+        
+    }
+
+    void Marble_Wind()
+    {
+        //몬스터를 빠른속도로 공격
+        
+    }
 }
