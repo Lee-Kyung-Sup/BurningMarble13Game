@@ -27,6 +27,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Update()
     {
+        // Monster.cs에서 하트가 삭제될 때 KillMonster가 증가가 안되서 maxSpawnCount보다 작아짐
+        // 그래서 다음 Wave로 안넘어가는 문제 발생
         if (GameManager.killMonster == maxSpawnCount)
         {
             waveSystem.NextWave();
