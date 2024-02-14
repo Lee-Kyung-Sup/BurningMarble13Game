@@ -152,4 +152,10 @@ public class GameManager : MonoBehaviour
             count = life.Length - 1;
         life[count].color = Color.black;
     }
+
+    public void GameClearUI()
+    {
+        gameOverUI.SetActive(true);//임시로 게임오버UI 올리기
+        //Medal();
+    }
 }

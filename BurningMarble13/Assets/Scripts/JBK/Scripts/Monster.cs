@@ -102,7 +102,7 @@ public class Monster : MonoBehaviour
 
     public void Damage()//kill대신 자동damge
     {
-        hp -= (10 * Time.deltaTime);
+        hp -= (100 * Time.deltaTime);
         if(hp <= 0)
         {
             GameManager.killMonster++;
