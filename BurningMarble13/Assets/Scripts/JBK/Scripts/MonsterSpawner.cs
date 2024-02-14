@@ -31,7 +31,8 @@ public class MonsterSpawner : MonoBehaviour
     {
         // Monster.cs에서 하트가 삭제될 때 KillMonster가 증가가 안되서 maxSpawnCount보다 작아짐
         // 그래서 다음 Wave로 안넘어가는 문제 발생
-        if (GameManager.killMonster == maxSpawnCount)
+        if (GameManager.killMonster == maxSpawnCount 
+            || (WaveSystem.currentWave%5 == 0 && killMonster > 0))
         {
             waveSystem.NextWave();
             GameManager.killMonster = 0;
@@ -61,6 +62,11 @@ public class MonsterSpawner : MonoBehaviour
                     monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave);
                 else if (monster.mobType == MobType.Big)
                     monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave) + 300;
+                else//Boss
+                {
+                    currentSpawnCount = maxSpawnCount;
+                    monster.hp = 10000;
+                }
 
                 monster.Setup(wayPoints);
                 currentSpawnCount++;
@@ -77,9 +83,17 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (WaveSystem.currentWave >= 2)
         {
-            float temp = Random.Range(0, waveSystem.MaxWave + 5);
-            if (temp == waveSystem.MaxWave)
-                return MobType.Big;
+            if(WaveSystem.currentWave % 5 == 0)
+            {
+                return MobType.Boss;
+            }
+            else
+            {
+                float temp = Random.Range(0, waveSystem.MaxWave + 5);
+                if (temp == waveSystem.MaxWave)
+                    return MobType.Big;
+            }
+
         }
         return MobType.Small;
     }
