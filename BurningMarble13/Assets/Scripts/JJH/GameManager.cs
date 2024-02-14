@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
     public static int killMonster;
 
 
+    public GameObject mainMenuBtn;
+    public GameObject replayBtn;
+
     public enum MobType
     {
         Small = 0,
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+
         waveSystem.StageChoice(choioceStageNum);
         gold = 200;
     }
@@ -82,6 +87,11 @@ public class GameManager : MonoBehaviour
     public void GameOverUIOpen()//임시 GameOverUI
     {
         gameOverUI.SetActive(true);
+    }
+
+    public void GameOverUIMainMenuBtn()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Life(int count)
