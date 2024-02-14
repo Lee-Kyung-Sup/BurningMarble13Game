@@ -38,6 +38,7 @@ public class Marble : MonoBehaviour
 
     void Update()
     {
+        //총알 날라가는 범위
         if(testMonster == null)
         {
             return;

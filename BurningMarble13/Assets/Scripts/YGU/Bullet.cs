@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(gameObject);
                 // 여기서 몬스터에게 데미지를 입히거나 다른 동작을 수행할 수 있습니다.
+                
             }
         }
         else
