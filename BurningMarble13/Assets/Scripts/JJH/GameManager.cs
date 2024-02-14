@@ -26,9 +26,45 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static int killMonster;
 
-
+    //gameover, pause menu
     public GameObject mainMenuBtn;
     public GameObject replayBtn;
+    public GameObject pausemenuBtn;
+    public GameObject pauseBtn;
+    private bool isPaused = false;
+
+    public void PauseMenuButton()
+    {
+        pausemenuBtn.SetActive(true);
+    }
+
+    //pause
+    void TogglePause()
+    {
+        if(isPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
+    public void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+        pauseBtn.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+        pauseBtn.SetActive(true);
+        pausemenuBtn.SetActive(false);
+    }
 
     public enum MobType
     {
