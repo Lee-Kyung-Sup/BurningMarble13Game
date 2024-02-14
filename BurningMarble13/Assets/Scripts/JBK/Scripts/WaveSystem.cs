@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,6 +63,8 @@ public class WaveSystem : MonoBehaviour
 
     public void SetStage(int maxWave)
     {
+        currentWave = 1;
+
         button.SetActive(false);//게임씬 작업용 나중에 삭제
 
         MaxWave = maxWave;
@@ -69,16 +72,31 @@ public class WaveSystem : MonoBehaviour
         //웨이브당 체력증가수치 1=10 2=15 3=20
         //몬스터수->나중에 테스트후
 
-        int random = Random.Range(0, Road.Length);
-        Debug.Log(random + "번 Road");
+        foreach(GameObject road in Road)
+        {
+            road.SetActive(false);
+        }
 
-        Road[random].SetActive(true);
-        monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
+        if (GameManager.isReplay == false)
+        {
+            GameManager.randomRoad = Random.Range(0, Road.Length);
+            Debug.Log(GameManager.randomRoad + "번 Road");
+
+            Road[GameManager.randomRoad].SetActive(true);
+            monsterSpawner = Road[GameManager.randomRoad].GetComponent<MonsterSpawner>();
+        }
+        else
+        {
+            Road[GameManager.randomRoad].SetActive(true);
+        }
+
     }
 
     public void InfinityStage()
     {
         button.SetActive(false);//게임씬 작업용 나중에 삭제
+
+        currentWave = 1;
 
         MaxWave = 2147483647; //int의 최대값을 적용함
 
@@ -87,11 +105,14 @@ public class WaveSystem : MonoBehaviour
         if (currentWave % 5 == 0)//5웨이브마다
             plusHP += 5;
 
-        int random = Random.Range(0, Road.Length);
-        Debug.Log(random + "번 Road");
+        if (GameManager.isReplay == false)
+        {
+            int random = Random.Range(0, Road.Length);
+            Debug.Log(random + "번 Road");
 
-        Road[random].SetActive(true);
-        monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
+            Road[random].SetActive(true);
+            monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
+        }
     }
 
     public void NextWave()
