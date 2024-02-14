@@ -67,7 +67,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            goalMonster++;
+            goalMonster++; //몬스터골에
             GameManager.killMonster++; // 하트가 삭제되면 KillMonster 1증가
             GameManager.Instance.Life(goalMonster - 1);
             // 목숨 오브젝트도 한개씩 삭제

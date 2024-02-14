@@ -32,7 +32,7 @@ public class Stage : MonoBehaviour
                 SceneManager.LoadScene("GameScene");
                 GameManager.choioceStageNum = mode;
                 break;
-            case 4://인피니티모드
+            case 4://인피니티모드 //이거 사용
                SceneManager.LoadScene("GameScene");
                GameManager.choioceStageNum = mode;
                 break;

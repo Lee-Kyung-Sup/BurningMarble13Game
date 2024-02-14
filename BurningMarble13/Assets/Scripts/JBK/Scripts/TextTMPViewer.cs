@@ -21,6 +21,7 @@ public class TextTMPViewer : MonoBehaviour
 
     private void TextWave()
     {
+        //if문 사용
         // 인피니티모드를 선택하면 MaxWave가 ???로 변경(임시)
         // 인피니티 모드가 int의 최대값이라 100이상으로 설정(임시)
         if(waveSystem.MaxWave >= 100)

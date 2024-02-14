@@ -82,7 +82,7 @@ public class WaveSystem : MonoBehaviour
 
         MaxWave = 2147483647; //int의 최대값을 적용함
 
-        plusHP = 10;
+        plusHP = 10; // 기본 체력
 
         if (currentWave % 5 == 0)//5웨이브마다
             plusHP += 5;
