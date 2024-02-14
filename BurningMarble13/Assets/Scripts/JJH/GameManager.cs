@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    //GM.cs
     public static GameManager Instance;
 
     public static int choioceStageNum;
