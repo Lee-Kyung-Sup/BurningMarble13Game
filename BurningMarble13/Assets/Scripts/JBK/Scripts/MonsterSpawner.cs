@@ -5,6 +5,7 @@ using static GameManager;
 
 public class MonsterSpawner : MonoBehaviour
 {
+    //MS.cs
     [SerializeField]
     private GameObject[] MonsterPrefabs;
     [SerializeField]
@@ -71,7 +72,7 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    private MobType MakeMobType()//난이도조절도가능
+    private MobType MakeMobType()//난이도조절도가능//인피니티모드용 다시
     {
         if (WaveSystem.currentWave >= 2)
         {
