@@ -63,7 +63,7 @@ public class WaveSystem : MonoBehaviour
 
     public void SetStage(int maxWave)
     {
-        currentWave = 1;
+        currentWave = 5;
 
         button.SetActive(false);//게임씬 작업용 나중에 삭제
 
@@ -98,7 +98,7 @@ public class WaveSystem : MonoBehaviour
 
         currentWave = 1;
 
-        MaxWave = 2147483647; //int의 최대값을 적용함
+        MaxWave = int.MaxValue; //int의 최대값을 적용함
 
         plusHP = 10; // 기본 체력
 

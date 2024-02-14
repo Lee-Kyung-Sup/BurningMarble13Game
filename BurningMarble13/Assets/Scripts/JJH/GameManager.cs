@@ -148,6 +148,8 @@ public class GameManager : MonoBehaviour
     }
     public void Life(int count)
     {
+        if (count >= life.Length)
+            count = life.Length - 1;
         life[count].color = Color.black;
     }
 }

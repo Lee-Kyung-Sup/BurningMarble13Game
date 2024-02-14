@@ -85,7 +85,7 @@ public class Monster : MonoBehaviour
             // 경섭님 GameScene UI 만들어주세요! 필요해요! 하트포함! 목숨 은 하나씩 삭제할수있게
             // 만듬
 
-            if (goalMonster == 3)
+            if (goalMonster >= 3)
             {
                 Debug.Log("GAMEOVER");
                 StopAllCoroutines();

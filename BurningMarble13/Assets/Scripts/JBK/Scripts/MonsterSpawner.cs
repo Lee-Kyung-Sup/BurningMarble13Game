@@ -65,7 +65,7 @@ public class MonsterSpawner : MonoBehaviour
                 else//Boss
                 {
                     currentSpawnCount = maxSpawnCount;
-                    monster.hp = 10000;
+                    monster.hp = 5000 + (WaveSystem.currentWave * 1000);
                 }
 
                 monster.Setup(wayPoints);
