@@ -96,6 +96,11 @@ public class WaveSystem : MonoBehaviour
             plusHP = 20;
         }
 
+        // 수정
+        //if (currentWave % 5 == 0)
+        //    plusHP += 5;
+
+
 
         int random = Random.Range(0, Road.Length);
         Debug.Log(random + "번 Road");
