@@ -73,7 +73,7 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    private MobType MakeMobType()//난이도조절도가능
+    private MobType MakeMobType()//난이도조절도가능//인피니트모드용 난이도만들어야함
     {
         if (WaveSystem.currentWave >= 2)
         {

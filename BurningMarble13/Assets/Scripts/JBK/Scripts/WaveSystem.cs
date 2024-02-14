@@ -67,7 +67,7 @@ public class WaveSystem : MonoBehaviour
         MaxWave = maxWave;
         plusHP = maxWave;
         //웨이브당 체력증가수치 1=10 2=15 3=20
-        //몬스터수
+        //몬스터수->나중에 테스트후
 
         int random = Random.Range(0, Road.Length);
         Debug.Log(random + "번 Road");
@@ -82,25 +82,10 @@ public class WaveSystem : MonoBehaviour
 
         MaxWave = 2147483647; //int의 최대값을 적용함
 
-        // 만약 현재 Wave가 1이상 10이하면 hp = 10, 11~20이면 15, 그 이상이면 20으로 통일(임시)
-        if (currentWave >= 1 || currentWave <= 10)
-        {
-            plusHP = 10;
-        }
-        else if (currentWave >= 11 || currentWave <= 20)
-        {
-            plusHP = 15;
-        }
-        else
-        {
-            plusHP = 20;
-        }
+        plusHP = 10;
 
-        // 수정
-        //if (currentWave % 5 == 0)
-        //    plusHP += 5;
-
-
+        if (currentWave % 5 == 0)//5웨이브마다
+            plusHP += 5;
 
         int random = Random.Range(0, Road.Length);
         Debug.Log(random + "번 Road");
