@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class WaveSystem : MonoBehaviour
 {
     [HideInInspector]
-    public int MaxWave = 0;
+    public int MaxWave = 10;
 
     [HideInInspector]
     public static int currentWave = 1;//텍스트로 나올때 +1하기위해
+    [HideInInspector]
+    public int currentWaveText = 1;
     //public int CurrentWaveIndex => currentWaveIndex + 1;//현재웨이브//읽기전용
 
     [HideInInspector]
@@ -21,8 +23,6 @@ public class WaveSystem : MonoBehaviour
 
     public GameObject button;//임시
 
-    private MonsterSpawner monsterSpawner;
-
 
     void Update()
     {
@@ -32,10 +32,21 @@ public class WaveSystem : MonoBehaviour
         // 목숨이 3개 사라지면 게임오버-> monster에 구현
         //
 
-        if (MaxWave == currentWave )//스테이지종료
+        if (MaxWave < currentWave)//스테이지종료
         {
             //WIN UI OPEN-> Main으로 돌아가기, 다시하기
+            Debug.Log("StageClear");
+            StopAllCoroutines();
+            Time.timeScale = 0;
+            GameManager.Instance.GameClearUI();
+            currentWave = 1;
         }
+
+        if(GameManager.choioceStageNum == 4 && currentWave % 5 == 0)//준비중
+        {
+            plusHP += 5;
+        }
+
     }
 
 
@@ -63,7 +74,8 @@ public class WaveSystem : MonoBehaviour
 
     public void SetStage(int maxWave)
     {
-        currentWave = 5;
+        currentWave = 9;
+        currentWaveText = currentWave;
 
         button.SetActive(false);//게임씬 작업용 나중에 삭제
 
@@ -83,7 +95,6 @@ public class WaveSystem : MonoBehaviour
             Debug.Log(GameManager.randomRoad + "번 Road");
 
             Road[GameManager.randomRoad].SetActive(true);
-            monsterSpawner = Road[GameManager.randomRoad].GetComponent<MonsterSpawner>();
         }
         else
         {
@@ -97,13 +108,11 @@ public class WaveSystem : MonoBehaviour
         button.SetActive(false);//게임씬 작업용 나중에 삭제
 
         currentWave = 1;
+        currentWaveText = currentWave;
 
         MaxWave = int.MaxValue; //int의 최대값을 적용함
 
         plusHP = 10; // 기본 체력
-
-        if (currentWave % 5 == 0)//5웨이브마다
-            plusHP += 5;
 
         if (GameManager.isReplay == false)
         {
@@ -111,7 +120,6 @@ public class WaveSystem : MonoBehaviour
             Debug.Log(random + "번 Road");
 
             Road[random].SetActive(true);
-            monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
         }
         else
         {
@@ -122,6 +130,10 @@ public class WaveSystem : MonoBehaviour
     public void NextWave()
     {
         currentWave++;
+        if (currentWave > MaxWave)
+            currentWaveText = MaxWave;
+        else
+            currentWaveText = currentWave;
     }
 
 
