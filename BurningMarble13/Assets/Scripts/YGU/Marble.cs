@@ -15,6 +15,33 @@ public class Marble : MonoBehaviour
     //Bow>5회 공격 시마다 업그레이드 수 만큼 무작위 타겟에게 화살발사
     //Laser>10회 공격할때마다 일직선 범위의 적을 레이저로 공격
     //Light>범위만큼 공격속도 증가 버프
-    //공격,죽이기..?,스플래시데미지주기,,?
+    //공격,죽이기..?
     //공통:공격력(기본)>바람,돌,활,레이저,빛/공격속도:불,전기,독,얼음,쇠,돌,활,레이저,빛
+    int attack = 20;
+    float attackSpeed = 1.5f;
+    float totalTime = 0;
+    public GameObject bulletprefeb;
+
+    void Attack()
+    {
+        //투사체가 생성되고(날라감)
+        GameObject Fire = Instantiate(bulletprefeb);
+        //내 위치로 투사체를 가져온다
+        Fire.transform.position = transform.position;
+        //Debug.Log("attack");
+
+    }
+
+    void Update()
+    {
+        totalTime += Time.deltaTime;
+
+        if (totalTime >= attackSpeed)
+        {
+            Attack();
+            totalTime = 0;
+        }
+     
+    }
+
 }
