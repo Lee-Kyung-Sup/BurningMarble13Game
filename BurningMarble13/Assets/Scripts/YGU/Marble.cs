@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Marble : MonoBehaviour
@@ -21,19 +22,31 @@ public class Marble : MonoBehaviour
     float attackSpeed = 1.5f;
     float totalTime = 0;
     public GameObject bulletprefeb;
-
+    public Transform testMonster;
+    public float attackRange;
+    
     void Attack()
     {
         //투사체가 생성되고(날라감)
-        GameObject Fire = Instantiate(bulletprefeb);
+        GameObject go = Instantiate(bulletprefeb);
         //내 위치로 투사체를 가져온다
-        Fire.transform.position = transform.position;
+        go.transform.position = transform.position;
         //Debug.Log("attack");
-
+        Bullet bullet = go.GetComponent<Bullet>();
+        bullet.Initialize(testMonster);
     }
 
     void Update()
     {
+        if(testMonster == null)
+        {
+            return;
+        }
+        if (Vector3.Distance(transform.position, testMonster.transform.position) > attackRange)
+        {
+            return;
+        }
+
         totalTime += Time.deltaTime;
 
         if (totalTime >= attackSpeed)
@@ -41,7 +54,7 @@ public class Marble : MonoBehaviour
             Attack();
             totalTime = 0;
         }
-     
+        
     }
 
 }
