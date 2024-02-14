@@ -23,8 +23,6 @@ public class WaveSystem : MonoBehaviour
 
     public GameObject button;//임시
 
-    private MonsterSpawner monsterSpawner;
-
 
     void Update()
     {
@@ -44,6 +42,10 @@ public class WaveSystem : MonoBehaviour
             currentWave = 1;
         }
 
+        if(GameManager.choioceStageNum == 4 && currentWave % 5 == 0)//준비중
+        {
+            plusHP += 5;
+        }
 
     }
 
@@ -93,7 +95,6 @@ public class WaveSystem : MonoBehaviour
             Debug.Log(GameManager.randomRoad + "번 Road");
 
             Road[GameManager.randomRoad].SetActive(true);
-            monsterSpawner = Road[GameManager.randomRoad].GetComponent<MonsterSpawner>();
         }
         else
         {
@@ -113,16 +114,12 @@ public class WaveSystem : MonoBehaviour
 
         plusHP = 10; // 기본 체력
 
-        if (currentWave % 5 == 0)//5웨이브마다     //인피니티모드 체력증가
-            plusHP += 5;                          //인피니티모드 체력증가
-
         if (GameManager.isReplay == false)
         {
             int random = Random.Range(0, Road.Length);
             Debug.Log(random + "번 Road");
 
             Road[random].SetActive(true);
-            monsterSpawner = Road[random].GetComponent<MonsterSpawner>();
         }
         else
         {
@@ -137,7 +134,6 @@ public class WaveSystem : MonoBehaviour
             currentWaveText = MaxWave;
         else
             currentWaveText = currentWave;
-
     }
 
 
