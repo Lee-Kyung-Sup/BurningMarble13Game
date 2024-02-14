@@ -94,6 +94,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void GameOverUIReplayBtn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void Life(int count)
     {
         life[count].color = Color.black;
