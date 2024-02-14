@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
     public GameObject mainMenu;
     public GameObject inventoryBtn;
     public GameObject playBtn;
-    public GameObject menuPlay;
+    public GameObject menuPlay; //menuplay -> menustage ют╢о╢ы.
 
     void Start()
     {
