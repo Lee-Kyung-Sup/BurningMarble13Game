@@ -32,14 +32,17 @@ public class Stage : MonoBehaviour
                 SceneManager.LoadScene("GameScene");
                 GameManager.choioceStageNum = mode;
                 break;
-            //case 4://인피니티모드
-            //    SceneManager.LoadScene("GameScene");
-            //    GameManager.choioceStageNum = mode;
+            case 4://인피니티모드 //이거 사용
+               SceneManager.LoadScene("GameScene");
+               GameManager.choioceStageNum = mode;
+                break;
             default:
                 return;
         }
     }
 
+    // 인피니티 버튼에서 잠시 해제
+    // 위 인피니티 모드 적용중(임시)
     public void InfinityMode()//나중에 무한모드 구현후삭제
     {
         SceneManager.LoadScene("GameScene");
