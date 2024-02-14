@@ -8,6 +8,26 @@ public class Monster : MonoBehaviour
     private Transform[] wayPoints;
     private int currentIndex = 0;
     private MonsterMovement movement;
+    //**private WaveSystem waveSystem;    
+
+    [HideInInspector]
+    public GameManager.MobType mobType;
+    
+    public float hp = 0;
+    //왜째서 나는 0으로 저장했건만
+
+    [HideInInspector]
+    public static int goalMonster = 0;
+
+    private void Awake()
+    {
+        //**waveSystem = GameManager.Instance.GetComponent<WaveSystem>();
+    }
+
+    private void Update()
+    {
+        Damage();//kill대신 자동damge
+    }
 
     public void Setup(Transform[] spawnPoints)
     {
@@ -28,7 +48,7 @@ public class Monster : MonoBehaviour
 
         while (true)
         {
-            if(Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * movement.MoveSpeed)
+            if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * movement.MoveSpeed)
             {
                 NextMoveTo();
             }
@@ -42,11 +62,40 @@ public class Monster : MonoBehaviour
         {
             transform.position = wayPoints[currentIndex].position;
             currentIndex++;
-            Vector3 direction = (wayPoints[currentIndex].position-transform.position).normalized;
+            Vector3 direction = (wayPoints[currentIndex].position - transform.position).normalized;
             movement.MoveTo(direction);
         }
         else
         {
+            goalMonster++;
+            GameManager.killMonster++; // 하트가 삭제되면 KillMonster 1증가
+            GameManager.Instance.Life(goalMonster - 1);
+            // 목숨 오브젝트도 한개씩 삭제
+            // 경섭님 GameScene UI 만들어주세요! 필요해요! 하트포함! 목숨 은 하나씩 삭제할수있게
+            // 만듬
+
+            if (goalMonster == 3)
+            {
+                Debug.Log("GAMEOVER");
+                Time.timeScale = 0;
+                GameManager.Instance.GameOverUIOpen();//임시 GameOverUI
+
+                goalMonster = 0;
+            }
+            Destroy(gameObject);               
+            
+            Debug.Log(goalMonster);
+        }
+    }
+
+    public void Damage()//kill대신 자동damge
+    {
+        hp -= (5 * Time.deltaTime);
+        if(hp <= 0)
+        {
+            GameManager.killMonster++;
+            GameManager.Instance.PlusGold(mobType);
+            Debug.Log(GameManager.killMonster);            
             Destroy(gameObject);
         }
     }
