@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static int randomRoad;
 
-    private static bool[] isFirstClear = new bool[3] { false, false , false };
+    public static bool[] isFirstClear = new bool[3] { false, false , false };
     private static int bestScore = 0;
 
     public enum MobType

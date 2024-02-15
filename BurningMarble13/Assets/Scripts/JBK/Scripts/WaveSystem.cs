@@ -44,6 +44,7 @@ public class WaveSystem : MonoBehaviour
             Time.timeScale = 0;
             GameManager.Instance.GameClearUIOpen(); //GameClearUI함수 명 변경
             currentWave = 1;
+            Monster.goalMonster = 0;
         }
     }
 
