@@ -41,8 +41,8 @@ public class WaveSystem : MonoBehaviour
             //WIN UI OPEN-> Main으로 돌아가기, 다시하기
             Debug.Log("StageClear");
             StopAllCoroutines();
-            Time.timeScale = 0;
             GameManager.Instance.GameClearUIOpen(); //GameClearUI함수 명 변경
+            Time.timeScale = 0;
             currentWave = 1;
             Monster.goalMonster = 0;
         }
