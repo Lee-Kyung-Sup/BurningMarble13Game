@@ -11,17 +11,24 @@ public class UIController : MonoBehaviour
 
     bool IsOpen = false;
 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void OnClickMenu()
     {
         if (IsOpen == false)
         {
             sideBar.transform.DOLocalMoveX(800, 1.0f).SetEase(Ease.OutQuad);
             IsOpen = true;
+            Debug.Log("¿­¸²");
         }
         else if (IsOpen == true)
         {
             sideBar.transform.DOLocalMoveX(1200, 1.0f).SetEase(Ease.OutBounce);
             IsOpen = false;
+            Debug.Log("´ÝÈû");
         }
     }
     public void Inventory()
