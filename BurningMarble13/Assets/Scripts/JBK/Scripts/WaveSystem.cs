@@ -23,6 +23,10 @@ public class WaveSystem : MonoBehaviour
 
     public GameObject button;//임시
 
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {

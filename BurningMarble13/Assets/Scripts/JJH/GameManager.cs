@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public static int randomRoad;
 
     private static bool[] isFirstClear = new bool[3] { false, false , false };
+    private static int bestScore = 0;
 
     public enum MobType
     {
@@ -173,24 +174,33 @@ public class GameManager : MonoBehaviour
             if (isFirstClear[0] == false)
             {
                 //구슬2개
+                Debug.Log(choioceStageNum + "스테이지 첫 클리어");
                 isFirstClear[0] = true;
             }
+            else
+                Debug.Log(choioceStageNum + "스테이지 다시 클리어");
         }
         else if (choioceStageNum == 2)
         {
             if (isFirstClear[1] == false)
             {
                 //구슬2개
+                Debug.Log(choioceStageNum + "스테이지 첫 클리어");
                 isFirstClear[1] = true;
             }
+            else
+                Debug.Log(choioceStageNum + "스테이지 다시 클리어");
         }
         else if (choioceStageNum == 3)
         {
             if (isFirstClear[2] == false)
             {
                 //구슬3개
+                Debug.Log(choioceStageNum + "스테이지 첫 클리어");
                 isFirstClear[2] = true;
             }
+            else
+                Debug.Log(choioceStageNum + "스테이지 다시 클리어");
         }
 
     }
