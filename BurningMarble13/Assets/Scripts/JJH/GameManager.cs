@@ -49,8 +49,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         waveSystem = GetComponent<WaveSystem>();
+
+        //DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
