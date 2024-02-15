@@ -6,20 +6,24 @@ using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private Transform Menu;
-    [SerializeField] private GameObject background;
+    [SerializeField] private Transform MenuIcon;
+    [SerializeField] private GameObject sideBar;
+
+    bool IsOpen = false;
 
     public void OnClickMenu()
     {
-        background.transform.DOLocalMoveX(800, 1.0f).SetEase(Ease.OutQuad);
+        if (IsOpen == false)
+        {
+            sideBar.transform.DOLocalMoveX(800, 1.0f).SetEase(Ease.OutQuad);
+            IsOpen = true;
+        }
+        else if (IsOpen == true)
+        {
+            sideBar.transform.DOLocalMoveX(1200, 1.0f).SetEase(Ease.OutBounce);
+            IsOpen = false;
+        }
     }
-
-    public void OnClickClose()
-    {
-        background.transform.DOLocalMoveX(1200, 1.0f).SetEase(Ease.OutBounce);
-    }
-
-
     public void Inventory()
     {
         SceneManager.LoadScene("InventoryScene");
