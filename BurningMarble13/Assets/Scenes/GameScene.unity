@@ -4765,11 +4765,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road4
       objectReference: {fileID: 0}
-    - target: {fileID: 7937075791510839420, guid: cdb8d0ed55c4242449cc3ea203ec8e20,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19776,7 +19771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1998199807
 MonoBehaviour:
   m_ObjectHideFlags: 0
