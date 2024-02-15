@@ -18,8 +18,8 @@ public class WaveSystem : MonoBehaviour
     [HideInInspector]
     public static int plusHP = 0;
 
-    [SerializeField]
     public GameObject[] Road;
+    public GameObject[] RoadUI;
 
     public GameObject button;//임시
 
@@ -87,6 +87,10 @@ public class WaveSystem : MonoBehaviour
         {
             road.SetActive(false);
         }
+        foreach(GameObject roadUI in RoadUI)
+        {
+            roadUI.SetActive(false);
+        }
 
         if (GameManager.isReplay == false)
         {
@@ -94,10 +98,12 @@ public class WaveSystem : MonoBehaviour
             Debug.Log(GameManager.randomRoad + "번 Road");
 
             Road[GameManager.randomRoad].SetActive(true);
+            RoadUI[GameManager.randomRoad].SetActive(true);
         }
         else
         {
             Road[GameManager.randomRoad].SetActive(true);
+            RoadUI[GameManager.randomRoad].SetActive(true);
         }
 
     }
@@ -115,13 +121,15 @@ public class WaveSystem : MonoBehaviour
 
         if (GameManager.isReplay == false)
         {
-            int random = Random.Range(0, Road.Length);
-            Debug.Log(random + "번 Road");
+            GameManager.randomRoad = Random.Range(0, Road.Length);
+            Debug.Log(GameManager.randomRoad + "번 Road");
 
-            Road[random].SetActive(true);
+            Road[GameManager.randomRoad].SetActive(true);
+            RoadUI[GameManager.randomRoad].SetActive(true);
         }
         else
         {
+            Road[GameManager.randomRoad].SetActive(true);
             Road[GameManager.randomRoad].SetActive(true);
         }
     }
