@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         waveSystem = GetComponent<WaveSystem>();
 
         //DontDestroyOnLoad(gameObject);
+        //Start씬에 게임매니저 오브젝트 만들기
+        //
     }
     private void Start()
     {
