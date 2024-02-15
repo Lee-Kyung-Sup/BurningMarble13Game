@@ -41,12 +41,6 @@ public class WaveSystem : MonoBehaviour
             GameManager.Instance.GameClearUIOpen(); //GameClearUI함수 명 변경
             currentWave = 1;
         }
-
-        if(GameManager.choioceStageNum == 4 && currentWave % 5 == 0)//준비중
-        {
-            plusHP += 5;
-        }
-
     }
 
 
@@ -107,7 +101,7 @@ public class WaveSystem : MonoBehaviour
     {
         button.SetActive(false);//게임씬 작업용 나중에 삭제
 
-        currentWave = 1;
+        currentWave = 4;
         currentWaveText = currentWave;
 
         MaxWave = int.MaxValue; //int의 최대값을 적용함
@@ -134,6 +128,12 @@ public class WaveSystem : MonoBehaviour
             currentWaveText = MaxWave;
         else
             currentWaveText = currentWave;
+
+        //인피니티 체력증가
+        if (GameManager.choioceStageNum == 4 && currentWave % 5 == 0)//준비중
+        {
+            plusHP += 5;
+        }//한번만실행되게만들어야함
     }
 
 
