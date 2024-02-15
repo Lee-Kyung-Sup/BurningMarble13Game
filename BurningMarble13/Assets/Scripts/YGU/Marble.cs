@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
-public enum BulletType { Fire, Electricity, Wind, Poison, Ice, Iron, Stone, Bow, Laser, Light };
+public enum BulletType { Fire, Electricity, Wind, Poison, Ice, Iron, Bow, Laser, Light };
 
 public class Marble : MonoBehaviour
 {
@@ -22,14 +23,28 @@ public class Marble : MonoBehaviour
     public BulletType bulletType;
     public int attackDamage = 20;
     public float attackSpeed = 1.5f;
+    //몇초당 날아갈지(쿨타임)
     public float attackRange;
 
     float totalTime = 0;
     public GameObject bulletprefeb;
+
     public Transform testMonster;
-    
-    
-    void Attack()
+    //테스터몬스터
+
+    CircleCollider2D circleCD;
+    //Rigidbody2D rigidBD;
+    List<Monster> monsterslist = new List<Monster>();
+
+    private void Start()
+    {
+        circleCD = GetComponent<CircleCollider2D>();
+        //rigidBD = GetComponent<Rigidbody2D>();
+        //attackRan값을 서클콜라이더 radius에 넣기
+        circleCD.radius = attackRange;
+    }
+
+    void Attack(Monster monster)
     {
         //투사체가 생성되고(날라감)
         GameObject go = Instantiate(bulletprefeb);
@@ -37,29 +52,77 @@ public class Marble : MonoBehaviour
         go.transform.position = transform.position;
         //Debug.Log("attack");
         Bullet bullet = go.GetComponent<Bullet>();
-        bullet.Initialize(testMonster);
+        bullet.Initialize(monster);
     }
+
+    Monster FindNearMonster()
+    {
+
+        if (monsterslist.Count == 0) 
+            return null;
+        if (monsterslist.Count == 1)
+            return monsterslist[0];
+
+        Monster nearestMonster = null;
+        float minDistance = float.MaxValue;
+
+        foreach (Monster mon in monsterslist)
+        {
+            float distance = Vector3.Distance(transform.position, mon.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestMonster = mon;
+            }
+        }
+
+        return nearestMonster;
+    }
+    
 
     void Update()
     {
         //총알 날라가는 범위
-        if(testMonster == null)
+        /*if(testMonster == null)
         {
             return;
         }
         if (Vector3.Distance(transform.position, testMonster.transform.position) > attackRange)
         {
             return;
-        }
+        }*/
+        //테스트 몬스터기준
 
         totalTime += Time.deltaTime;
 
         if (totalTime >= attackSpeed)
         {
-            Attack();
-            totalTime = 0;
+            Monster mon = FindNearMonster();
+            if(mon != null)
+            {
+                Attack(mon);
+                totalTime = 0;
+            }
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //트리거 안에 충돌체가 들어왔을때~
+        Monster monster = collision.GetComponent<Monster>();
+
+        if (monster != null)
+            monsterslist.Add(monster);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //트리거 밖으로 충돌체가 나갈때~
+        Monster monster = collision.GetComponent<Monster>();
+
+        if (monster != null)
+            monsterslist.Remove(monster);
     }
 
 }

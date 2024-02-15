@@ -26,7 +26,7 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
-        Damage();//kill대신 자동damge
+       // Damage(); //kill대신 자동damge
     }
 
     public void Setup(Transform[] spawnPoints)
@@ -100,9 +100,9 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void Damage()//kill대신 자동damge
+    public void Damage(float damage)
     {
-        hp -= (10000 * Time.deltaTime);
+        hp -= damage;
         if (hp <= 0)
         {
             GameManager.killMonster++;
@@ -111,4 +111,5 @@ public class Monster : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
