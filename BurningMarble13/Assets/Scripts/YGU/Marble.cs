@@ -58,7 +58,7 @@ public class Marble : MonoBehaviour
     Monster FindNearMonster()
     {
 
-        if (monsterslist.Count == 0) 
+        if (monsterslist.Count == 0)
             return null;
         if (monsterslist.Count == 1)
             return monsterslist[0];
@@ -78,7 +78,7 @@ public class Marble : MonoBehaviour
 
         return nearestMonster;
     }
-    
+
 
     void Update()
     {
@@ -98,13 +98,13 @@ public class Marble : MonoBehaviour
         if (totalTime >= attackSpeed)
         {
             Monster mon = FindNearMonster();
-            if(mon != null)
+            if (mon != null)
             {
                 Attack(mon);
                 totalTime = 0;
             }
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
