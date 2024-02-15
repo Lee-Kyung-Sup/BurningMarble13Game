@@ -51,7 +51,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (currentSpawnCount < maxSpawnCount)
         {
-            GameObject randomMonsterPrefab = MonsterPrefabs[Random.Range(0, MonsterPrefabs.Length)];
+            GameObject randomMonsterPrefab = MonsterPrefabs[Random.Range(0, MonsterPrefabs.Length - 1)];
             if(WaveSystem.currentWave % 5 == 0)
                 randomMonsterPrefab = MonsterPrefabs[MonsterPrefabs.Length-1];
             GameObject clone = Instantiate(randomMonsterPrefab);
