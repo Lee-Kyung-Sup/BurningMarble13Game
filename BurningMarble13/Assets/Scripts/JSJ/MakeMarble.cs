@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class MakeMarble : MonoBehaviour
 {
     public GameObject Marble;
+    public GameObject MarbleChoiceUI;
+    //public Transform ButtonTransform;
+
+    [HideInInspector]
+    public static GameObject pushObj;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +21,6 @@ public class MakeMarble : MonoBehaviour
         //Marble.transform.position = MarbleButton.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -25,5 +29,22 @@ public class MakeMarble : MonoBehaviour
     public void MarbleOpen()
     {
         Marble.SetActive(true);
+    }
+
+    public void MarbleChoiceOpen()
+    {
+        MarbleChoiceUI.SetActive(true);
+    }
+    public void MarbleChoiceClose()
+    {
+        MarbleChoiceUI.SetActive(false);
+    }
+    public void ButtonPosition(GameObject button)
+    {
+        MarbleChoiceUI.transform.position = button.transform.position;
+        MarbleChoiceUI.transform.position = new Vector3(MarbleChoiceUI.transform.position.x, MarbleChoiceUI.transform.position.y + 50);
+
+        pushObj = button;
+        
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,8 @@ public class Stage : MonoBehaviour
     public GameObject selectStageThree;
     public GameObject selectInfinityMode;
 
+    private bool clearCheck;
+
     void Start()
     {
         menuPlayStage.SetActive(true);
@@ -18,26 +21,49 @@ public class Stage : MonoBehaviour
 
     public void ModeChoice(int mode)
     {
-        switch (mode)
+        if (clearCheck = GameManager.isFirstClear.All(x => x == true))
         {
-            case 1:
-                SceneManager.LoadScene("GameScene");
-                GameManager.choioceStageNum = mode;
-                break;
-            case 2:
-                SceneManager.LoadScene("GameScene");
-                GameManager.choioceStageNum = mode;
-                break;
-            case 3:
-                SceneManager.LoadScene("GameScene");
-                GameManager.choioceStageNum = mode;
-                break;
-            case 4://인피니티모드 //이거 사용
-               SceneManager.LoadScene("GameScene");
-               GameManager.choioceStageNum = mode;
-                break;
-            default:
-                return;
+            switch (mode)
+            {
+                case 1:
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                case 2:
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                case 3:
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                case 4://인피니티모드 //이거 사용
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                default:
+                    return;
+            }
+        }
+        else
+        {
+            switch (mode)
+            {
+                case 1:
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                case 2:
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                case 3:
+                    SceneManager.LoadScene("GameScene");
+                    GameManager.choioceStageNum = mode;
+                    break;
+                default:
+                    return;
+            }
         }
     }
 
