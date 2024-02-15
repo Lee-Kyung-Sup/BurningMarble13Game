@@ -42,9 +42,17 @@ public class MakeMarble : MonoBehaviour
     public void ButtonPosition(GameObject button)
     {
         MarbleChoiceUI.transform.position = button.transform.position;
-        MarbleChoiceUI.transform.position = new Vector3(MarbleChoiceUI.transform.position.x, MarbleChoiceUI.transform.position.y + 50);
+        MarbleChoiceUI.transform.position = new Vector3(MarbleChoiceUI.transform.position.x, MarbleChoiceUI.transform.position.y - 110);
 
-        pushObj = button;
+        if(pushObj == null )
+        {
+            pushObj = button;
+        }
+        else
+        {
+            pushObj = null;
+            pushObj = button; 
+        }
         
     }
 }
