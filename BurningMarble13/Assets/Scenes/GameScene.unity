@@ -365,7 +365,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 419667634}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameOverUIReplayBtn
+        m_MethodName: GameEndReplayBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3676,7 +3676,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 419667634}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameOverUIMainMenuBtn
+        m_MethodName: GameEndMainMenuBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3771,6 +3771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 2011403001}
+  gameClearUI: {fileID: 1710230733}
   life:
   - {fileID: 1311160888}
   - {fileID: 1932336951}
@@ -4047,7 +4048,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 419667634}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameOverUIReplayBtn
+        m_MethodName: GameEndReplayBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6204,7 +6205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1710230734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7032,7 +7033,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 419667634}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameOverUIMainMenuBtn
+        m_MethodName: GameEndMainMenuBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

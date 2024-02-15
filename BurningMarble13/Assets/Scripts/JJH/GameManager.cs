@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverUI;//임시 GameOverUI
     [SerializeField]
+    private GameObject gameClearUI;//GameClearUI 추가
+    [SerializeField]
     private Image[] life;
 
     [HideInInspector]
@@ -131,7 +133,7 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
-    public void GameOverUIMainMenuBtn()
+    public void GameEndMainMenuBtn() //임의로 작성된 명칭
     {
         StopAllCoroutines();
         SceneManager.LoadScene("MainMenu");
@@ -139,7 +141,7 @@ public class GameManager : MonoBehaviour
         killMonster = 0;
     }
 
-    public void GameOverUIReplayBtn()
+    public void GameEndReplayBtn()//임의로 작성된 명칭
     {
         StopAllCoroutines();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -153,9 +155,9 @@ public class GameManager : MonoBehaviour
         life[count].color = Color.black;
     }
 
-    public void GameClearUI()
+    public void GameClearUIOpen() //GameOverUIOpen과 명칭을 통일시켜야 할 것 같아요
     {
-        gameOverUI.SetActive(true);//임시로 게임오버UI 올리기
+        gameClearUI.SetActive(true);//2.15 11시37분에 받은 clearUI로 변경
         //Medal();
     }
 }

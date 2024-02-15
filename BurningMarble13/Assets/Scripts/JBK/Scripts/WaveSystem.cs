@@ -38,7 +38,7 @@ public class WaveSystem : MonoBehaviour
             Debug.Log("StageClear");
             StopAllCoroutines();
             Time.timeScale = 0;
-            GameManager.Instance.GameClearUI();
+            GameManager.Instance.GameClearUIOpen(); //GameClearUI함수 명 변경
             currentWave = 1;
         }
 
