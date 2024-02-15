@@ -26,7 +26,7 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
-        Damage();//kill대신 자동damge
+       // Damage(); //kill대신 자동damge
     }
 
     public void Setup(Transform[] spawnPoints)
@@ -100,15 +100,16 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void Damage()//kill대신 자동damge
+    public void Damage(float damage)
     {
-        hp -= (10 * Time.deltaTime);
-        if(hp <= 0)
+        hp -= damage;
+        if (hp <= 0)
         {
             GameManager.killMonster++;
             GameManager.Instance.PlusGold(mobType);
-            Debug.Log(GameManager.killMonster);            
+            Debug.Log(GameManager.killMonster);
             Destroy(gameObject);
         }
     }
+
 }

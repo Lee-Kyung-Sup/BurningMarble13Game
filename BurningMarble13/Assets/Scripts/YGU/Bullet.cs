@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    Monster monster;
+    Transform TargetTrans;
     //총알이 몬스터를 따라가서 쏘게하기
-    Transform target;
     public float speed;
     //날아가는 속도
+    
+
+
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (monster != null)
         {
             // 몬스터 방향으로 이동
-            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 direction = (TargetTrans.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
 
             // 목표에 도달하면 총알 제거
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            float distanceToTarget = Vector3.Distance(transform.position, TargetTrans.position);
             if (distanceToTarget < 0.1f)
             {
                 ApplyDamage();
@@ -37,12 +41,13 @@ public class Bullet : MonoBehaviour
 
     protected virtual void ApplyDamage()
     {
-        //타켓에게 데미지 주기
-        
+        //몬스터에게 데미지 주기
+        monster.Damage(1f);
     }
 
-    public void Initialize(Transform monsterTrans)
+    public void Initialize(Monster _monster)
     {
-        target = monsterTrans;
+        monster = _monster;
+        TargetTrans = monster.transform;
     }
 }
