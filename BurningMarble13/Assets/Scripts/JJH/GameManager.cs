@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static int choioceStageNum;
 
     private WaveSystem waveSystem;
+    private MedalController medalController;
 
     public MakeMarble makeMarble;
 
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         waveSystem = GetComponent<WaveSystem>();
+        medalController = GetComponent<MedalController>();
 
         //DontDestroyOnLoad(gameObject);
         //Start씬에 게임매니저 오브젝트 만들기

@@ -9,19 +9,26 @@ public class MedalController : MonoBehaviour
     public Image TwoMedal;
     public Image ThreeMedal;
 
+    private void Start()
+    {
+        OneMedal.enabled = false;
+        TwoMedal.enabled = false;
+        ThreeMedal.enabled = false;
+    }
+
     public void OpenMedal()
     {
         if(GameManager.isFirstClear[0] == true)
         {
-            GetComponent<UnityEngine.UI.Image>().enabled = true;
+            OneMedal.enabled = true;
         }
-        else if (GameManager.isFirstClear[1] == true)
+        if (GameManager.isFirstClear[1] == true)
         {
-            GetComponent<UnityEngine.UI.Image>().enabled = true;
+            TwoMedal.enabled = true;
         }
-        else if (GameManager.isFirstClear[2] == true)
+        if (GameManager.isFirstClear[2] == true)
         {
-            GetComponent<UnityEngine.UI.Image>().enabled = true;
+            ThreeMedal.enabled = true;
         }
     }
 }
