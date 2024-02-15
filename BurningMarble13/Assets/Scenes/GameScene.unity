@@ -4765,6 +4765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road4
       objectReference: {fileID: 0}
+    - target: {fileID: 7937075791510839420, guid: cdb8d0ed55c4242449cc3ea203ec8e20,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6376,7 +6381,7 @@ MonoBehaviour:
   - {fileID: 1325767291}
   - {fileID: 1693109981}
   - {fileID: 1880606808}
-  - {fileID: 984866646}
+  - {fileID: 7937075791510839420, guid: cdb8d0ed55c4242449cc3ea203ec8e20, type: 3}
   button: {fileID: 1791258610}
 --- !u!1 &435005690
 GameObject:
@@ -10243,12 +10248,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969709628}
   m_CullTransparentMesh: 1
---- !u!1 &984866646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7937075791510839420, guid: cdb8d0ed55c4242449cc3ea203ec8e20,
-    type: 3}
-  m_PrefabInstance: {fileID: 222953989}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &984866649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4586414586322566681, guid: cdb8d0ed55c4242449cc3ea203ec8e20,
