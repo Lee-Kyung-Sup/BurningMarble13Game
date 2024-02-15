@@ -52,6 +52,8 @@ public class MonsterSpawner : MonoBehaviour
         while (currentSpawnCount < maxSpawnCount)
         {
             GameObject randomMonsterPrefab = MonsterPrefabs[Random.Range(0, MonsterPrefabs.Length)];
+            if(WaveSystem.currentWave % 5 == 0)
+                randomMonsterPrefab = MonsterPrefabs[MonsterPrefabs.Length-1];
             GameObject clone = Instantiate(randomMonsterPrefab);
 
             Monster monster = clone.GetComponent<Monster>();
@@ -63,7 +65,7 @@ public class MonsterSpawner : MonoBehaviour
                 else if (monster.mobType == MobType.Big)
                     monster.hp += (WaveSystem.plusHP * WaveSystem.currentWave) + 300;
                 else//Boss
-                {
+                {  
                     currentSpawnCount = maxSpawnCount;
                     monster.hp = 5000 + (WaveSystem.currentWave * 1000);
                 }

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private WaveSystem waveSystem;
 
+    public MakeMarble makeMarble;
+
     [SerializeField]
     private GameObject gameOverUI;//임시 GameOverUI
     [SerializeField]
@@ -226,5 +228,17 @@ public class GameManager : MonoBehaviour
 
         return bestScore;
         
+    }
+
+    public void MinusGold()
+    {
+        if (gold - 100 >= 0)
+        {
+            gold -= 100;
+            MakeMarble.pushObj.SetActive(false);
+            makeMarble.MarbleChoiceClose();//???
+        }
+        else
+            return;
     }
 }
