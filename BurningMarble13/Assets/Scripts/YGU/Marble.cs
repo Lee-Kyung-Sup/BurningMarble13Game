@@ -22,19 +22,13 @@ public class Marble : MonoBehaviour
     public BulletType bulletType;
     public int attackDamage = 20;
     public float attackSpeed = 1.5f;
-    //몇초당 날아갈지(쿨타임)
     public float attackRange;
 
     float totalTime = 0;
     public GameObject bulletprefeb;
-
     public Transform testMonster;
-    //테스터몬스터
-
-    CircleCollider2D circleCD;
-    //Rigidbody2D rigidBD;
-    List<Monster> monsterslist = new List<Monster>();
-
+    
+    
     void Attack()
     {
         //투사체가 생성되고(날라감)
@@ -57,7 +51,6 @@ public class Marble : MonoBehaviour
         {
             return;
         }
-        //테스트 몬스터기준
 
         totalTime += Time.deltaTime;
 
@@ -67,24 +60,6 @@ public class Marble : MonoBehaviour
             totalTime = 0;
         }
         
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //트리거 안에 충돌체가 들어왔을때~
-        Monster monster = collision.GetComponent<Monster>();
-
-        if (monster != null)
-            monsterslist.Add(monster);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //트리거 밖으로 충돌체가 나갈때~
-        Monster monster = collision.GetComponent<Monster>();
-
-        if (monster != null)
-            monsterslist.Remove(monster);
     }
 
 }

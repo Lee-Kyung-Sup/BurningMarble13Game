@@ -8,12 +8,20 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 {
     private Transform canvas; //UI 가 소속되어 있는 최상단의 Canvas
     public Transform previousParent; // 해당 오브젝트가 직전에 소속되어 있었던 부모
+    public Transform originalParent; // 해당 오브젝트가 직전에 소속되어 있었던 부모
     private RectTransform rect; // UI 위치 제어를 위한
+    public int ID;
 
     private void Awake()
     {
+        originalParent = transform.parent;
         canvas = FindObjectOfType<Canvas>().transform;
         rect = GetComponent<RectTransform>();
+
+        if (transform.parent != originalParent)
+        {
+            GetComponent<Image>().raycastTarget = false;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -31,17 +39,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        GetComponent<Image>().raycastTarget = true;
         if (transform.parent == canvas)
         {
-            Reset();
+            ResetOrigin();
         }
     }
 
-    public void Reset()
+    public void ResetOrigin()
     {
-        transform.SetParent(previousParent);
-        rect.position = previousParent.GetComponent<RectTransform>().position;
+        GetComponent<Image>().raycastTarget = true;
+        transform.SetParent(originalParent);
+        rect.position = originalParent.GetComponent<RectTransform>().position;
     }
 
 }

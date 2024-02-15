@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
+        // SlotManager.Instance.;
     }
 
     public void OnClickMenu()
