@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     //총알이 몬스터를 따라가서 쏘게하기
     Transform target;
     public float speed;
+    //날아가는 속도
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
             {
                 ApplyDamage();
                 Destroy(gameObject);
-                // 여기서 몬스터에게 데미지를 입히거나 다른 동작을 수행할 수 있습니다.
+               
                 
             }
         }
