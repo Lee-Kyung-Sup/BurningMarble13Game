@@ -35,6 +35,7 @@ public class Marble : MonoBehaviour
         //Debug.Log("attack");
         Bullet bullet = go.GetComponent<Bullet>();
         bullet.Initialize(testMonster);
+        
     }
 
     void Update()
