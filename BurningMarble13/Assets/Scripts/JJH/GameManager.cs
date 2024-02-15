@@ -33,39 +33,6 @@ public class GameManager : MonoBehaviour
     public GameObject pauseBtn;
     private bool isPaused = false;
 
-    public void PauseMenuButton()
-    {
-        pausemenuBtn.SetActive(true);
-    }
-
-    //pause
-    void TogglePause()
-    {
-        if(isPaused)
-        {
-            Resume();
-        }
-        else
-        {
-            Pause();
-        }
-    }
-
-    public void Pause()
-    {
-        isPaused = true;
-        Time.timeScale = 0f;
-        pauseBtn.SetActive(true);
-    }
-
-    public void Resume()
-    {
-        isPaused = false;
-        Time.timeScale = 1f;
-        pauseBtn.SetActive(true);
-        pausemenuBtn.SetActive(false);
-    }
-
     [HideInInspector]
     public static bool isReplay = false;
     [HideInInspector]
@@ -93,6 +60,39 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void PauseMenuButton()
+    {
+        pausemenuBtn.SetActive(true);
+    }
+
+    //pause
+    void TogglePause()
+    {
+        if (isPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
+    public void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+        pauseBtn.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+        pauseBtn.SetActive(true);
+        pausemenuBtn.SetActive(false);
     }
 
     /*
@@ -151,5 +151,11 @@ public class GameManager : MonoBehaviour
         if (count >= life.Length)
             count = life.Length - 1;
         life[count].color = Color.black;
+    }
+
+    public void GameClearUI()
+    {
+        gameOverUI.SetActive(true);//임시로 게임오버UI 올리기
+        //Medal();
     }
 }

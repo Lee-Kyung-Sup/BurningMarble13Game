@@ -27,11 +27,11 @@ public class TextTMPViewer : MonoBehaviour
         // -> int.MaxValue로 변경
         if(waveSystem.MaxWave >= int.MaxValue)
         {
-            textWave.text = "WAVE " + (WaveSystem.currentWave);
+            textWave.text = "WAVE " + (waveSystem.currentWaveText);
         }
         else
         {
-            textWave.text = "WAVE " + (WaveSystem.currentWave) + " / " + waveSystem.MaxWave;
+            textWave.text = "WAVE " + (waveSystem.currentWaveText) + " / " + waveSystem.MaxWave;
         }
         
     }

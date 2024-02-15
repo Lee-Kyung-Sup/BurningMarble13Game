@@ -2,31 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject inventoryBtn;
-    public GameObject playBtn;
-    public GameObject menuPlay; //menuplay -> menustage �Դϴ�.
+    [SerializeField] private Transform Menu;
+    [SerializeField] private GameObject background;
 
-    void Start()
+    public void OnClickMenu()
     {
-        mainMenu.SetActive(true);
-        inventoryBtn.SetActive(true);
-        playBtn.SetActive(true);
-        menuPlay.SetActive(false);
+        background.transform.DOLocalMoveX(800, 1.0f).SetEase(Ease.OutQuad);
     }
+
+    public void OnClickClose()
+    {
+        background.transform.DOLocalMoveX(1200, 1.0f).SetEase(Ease.OutBounce);
+    }
+
 
     public void Inventory()
     {
         SceneManager.LoadScene("InventoryScene");
     }
-
-    public void Play()
-    {
-        menuPlay.SetActive(true);
-    }
-
-    
 }
