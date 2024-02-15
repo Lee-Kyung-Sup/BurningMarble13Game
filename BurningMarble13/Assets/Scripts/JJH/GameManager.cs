@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static int randomRoad;
 
-    private static bool[] isFirstClear = new bool[3] { false, false , false };
+    public static bool[] isFirstClear = new bool[3] { false, false , false };
+    public static int bestScore = 0;
 
     public enum MobType
     {
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOverUIOpen()//임시 GameOverUI
     {
+        InfinityBestScore();//인피니티 모드 게임이 끝나면 점수 비교
         gameOverUI.SetActive(true);
     }
 
@@ -173,25 +175,56 @@ public class GameManager : MonoBehaviour
             if (isFirstClear[0] == false)
             {
                 //구슬2개
+                Debug.Log(choioceStageNum + "스테이지 첫 클리어");
                 isFirstClear[0] = true;
             }
+            else
+                Debug.Log(choioceStageNum + "스테이지 다시 클리어");
         }
         else if (choioceStageNum == 2)
         {
             if (isFirstClear[1] == false)
             {
                 //구슬2개
+                Debug.Log(choioceStageNum + "스테이지 첫 클리어");
                 isFirstClear[1] = true;
             }
+            else
+                Debug.Log(choioceStageNum + "스테이지 다시 클리어");
         }
         else if (choioceStageNum == 3)
         {
             if (isFirstClear[2] == false)
             {
                 //구슬3개
+                Debug.Log(choioceStageNum + "스테이지 첫 클리어");
                 isFirstClear[2] = true;
+            }
+            else
+                Debug.Log(choioceStageNum + "스테이지 다시 클리어");
+        }
+
+    }
+
+    public int InfinityBestScore()
+    {
+        if(bestScore == 0)
+        {
+            bestScore = WaveSystem.currentWave;
+        }
+        else
+        {
+            if(bestScore >= WaveSystem.currentWave)
+            {
+                //최고기록이 아니거나 같으면 bestScore는 그대로
+            }
+            else
+            {
+                bestScore = WaveSystem.currentWave;
             }
         }
 
+        return bestScore;
+        
     }
 }

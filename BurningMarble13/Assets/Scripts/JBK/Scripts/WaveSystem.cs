@@ -18,11 +18,15 @@ public class WaveSystem : MonoBehaviour
     [HideInInspector]
     public static int plusHP = 0;
 
-    [SerializeField]
     public GameObject[] Road;
+    public GameObject[] RoadUI;
 
     public GameObject button;//임시
 
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -37,9 +41,10 @@ public class WaveSystem : MonoBehaviour
             //WIN UI OPEN-> Main으로 돌아가기, 다시하기
             Debug.Log("StageClear");
             StopAllCoroutines();
-            Time.timeScale = 0;
             GameManager.Instance.GameClearUIOpen(); //GameClearUI함수 명 변경
+            Time.timeScale = 0;
             currentWave = 1;
+            Monster.goalMonster = 0;
         }
     }
 
@@ -82,6 +87,10 @@ public class WaveSystem : MonoBehaviour
         {
             road.SetActive(false);
         }
+        foreach(GameObject roadUI in RoadUI)
+        {
+            roadUI.SetActive(false);
+        }
 
         if (GameManager.isReplay == false)
         {
@@ -89,10 +98,12 @@ public class WaveSystem : MonoBehaviour
             Debug.Log(GameManager.randomRoad + "번 Road");
 
             Road[GameManager.randomRoad].SetActive(true);
+            RoadUI[GameManager.randomRoad].SetActive(true);
         }
         else
         {
             Road[GameManager.randomRoad].SetActive(true);
+            RoadUI[GameManager.randomRoad].SetActive(true);
         }
 
     }
@@ -110,13 +121,15 @@ public class WaveSystem : MonoBehaviour
 
         if (GameManager.isReplay == false)
         {
-            int random = Random.Range(0, Road.Length);
-            Debug.Log(random + "번 Road");
+            GameManager.randomRoad = Random.Range(0, Road.Length);
+            Debug.Log(GameManager.randomRoad + "번 Road");
 
-            Road[random].SetActive(true);
+            Road[GameManager.randomRoad].SetActive(true);
+            RoadUI[GameManager.randomRoad].SetActive(true);
         }
         else
         {
+            Road[GameManager.randomRoad].SetActive(true);
             Road[GameManager.randomRoad].SetActive(true);
         }
     }
