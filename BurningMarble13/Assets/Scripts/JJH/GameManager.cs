@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static int randomRoad;
 
+    private static bool[] isFirstClear = new bool[3] { false, false , false };
+
     public enum MobType
     {
         Small = 0,
@@ -49,8 +51,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         waveSystem = GetComponent<WaveSystem>();
+
+        //DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
@@ -158,6 +166,32 @@ public class GameManager : MonoBehaviour
     public void GameClearUIOpen() //GameOverUIOpen과 명칭을 통일시켜야 할 것 같아요
     {
         gameClearUI.SetActive(true);//2.15 11시37분에 받은 clearUI로 변경
-        //Medal();
+
+        //보상주기용
+        if (choioceStageNum == 1)
+        {
+            if (isFirstClear[0] == false)
+            {
+                //구슬2개
+                isFirstClear[0] = true;
+            }
+        }
+        else if (choioceStageNum == 2)
+        {
+            if (isFirstClear[1] == false)
+            {
+                //구슬2개
+                isFirstClear[1] = true;
+            }
+        }
+        else if (choioceStageNum == 3)
+        {
+            if (isFirstClear[2] == false)
+            {
+                //구슬3개
+                isFirstClear[2] = true;
+            }
+        }
+
     }
 }

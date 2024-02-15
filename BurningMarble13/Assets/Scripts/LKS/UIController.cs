@@ -22,13 +22,13 @@ public class UIController : MonoBehaviour
         {
             sideBar.transform.DOLocalMoveX(800, 1.0f).SetEase(Ease.OutQuad);
             IsOpen = true;
-            Debug.Log("¿­¸²");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         }
         else if (IsOpen == true)
         {
             sideBar.transform.DOLocalMoveX(1200, 1.0f).SetEase(Ease.OutBounce);
             IsOpen = false;
-            Debug.Log("´ÝÈû");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         }
     }
     public void Inventory()
