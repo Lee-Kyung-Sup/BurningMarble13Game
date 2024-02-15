@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &181446839
 Transform:
   m_ObjectHideFlags: 0
@@ -252,10 +252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 8
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: 627d292dd58f9470fa183bafc4342ada,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &210542099
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &297953127
 Transform:
   m_ObjectHideFlags: 0
@@ -469,10 +472,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 5
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: a66793be252084e5f8fb8afc10142570,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &306938934
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &509143281
 Transform:
   m_ObjectHideFlags: 0
@@ -686,10 +692,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 4
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: 501cd43513eb645788c7bfd88f74eec6,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &578005534
 Transform:
   m_ObjectHideFlags: 0
@@ -827,10 +836,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 9
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: 9ae6d0e9a30c54e01b40ea3d34825501,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &601333078
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &786301923
 Transform:
   m_ObjectHideFlags: 0
@@ -960,10 +972,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 6
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: c62148369258e4698aeb1ee46cf15a35,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &991844751
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &991844752
 Transform:
   m_ObjectHideFlags: 0
@@ -1009,10 +1024,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 3
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: d27f2b8a3a37e48e39c2043feae8b292,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &1044141547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,10 +1076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 0
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: 6a1f0580525c34410868ea967ad3c3f1,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &1067771883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,7 +1351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1655241062
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,10 +1380,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 7
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: 3633240d09afc4132a2c8399aa33edee,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &1694600221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,7 +1403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1694600222
 Transform:
   m_ObjectHideFlags: 0
@@ -1408,10 +1432,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 2
+  attackDamage: 20
+  attackSpeed: 0.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: ca923417b229f4cf7ba63a45d9985bef,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &1744453260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1744453261
 Transform:
   m_ObjectHideFlags: 0
@@ -1457,10 +1484,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c1fd46d984e32a12029db2f1f033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 1
+  attackDamage: 20
+  attackSpeed: 1.5
+  attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: 8c05d432570ad4c1394ca88d1980e0c6,
     type: 3}
   testMonster: {fileID: 1800798397}
-  attackRange: 3
 --- !u!1 &1800798395
 GameObject:
   m_ObjectHideFlags: 0
