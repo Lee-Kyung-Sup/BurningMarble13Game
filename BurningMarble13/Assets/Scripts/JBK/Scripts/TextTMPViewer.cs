@@ -27,7 +27,8 @@ public class TextTMPViewer : MonoBehaviour
         // -> int.MaxValue로 변경
         if(waveSystem.MaxWave >= int.MaxValue)
         {
-            textWave.text = "WAVE " + (waveSystem.currentWaveText);
+            //현제Wave / 최고Wave를 비교 해서 보여줌
+            textWave.text = "WAVE " + (waveSystem.currentWaveText) + " / " + GameManager.bestScore;
         }
         else
         {

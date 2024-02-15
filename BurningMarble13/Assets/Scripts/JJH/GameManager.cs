@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public static int randomRoad;
 
     public static bool[] isFirstClear = new bool[3] { false, false , false };
-    private static int bestScore = 0;
+    public static int bestScore = 0;
 
     public enum MobType
     {
@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOverUIOpen()//임시 GameOverUI
     {
+        InfinityBestScore();//인피니티 모드 게임이 끝나면 점수 비교
         gameOverUI.SetActive(true);
     }
 
@@ -203,5 +204,27 @@ public class GameManager : MonoBehaviour
                 Debug.Log(choioceStageNum + "스테이지 다시 클리어");
         }
 
+    }
+
+    public int InfinityBestScore()
+    {
+        if(bestScore == 0)
+        {
+            bestScore = WaveSystem.currentWave;
+        }
+        else
+        {
+            if(bestScore >= WaveSystem.currentWave)
+            {
+                //최고기록이 아니거나 같으면 bestScore는 그대로
+            }
+            else
+            {
+                bestScore = WaveSystem.currentWave;
+            }
+        }
+
+        return bestScore;
+        
     }
 }
