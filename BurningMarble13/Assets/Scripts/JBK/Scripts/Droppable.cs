@@ -8,8 +8,9 @@ public class Droppable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 {
     private Image image;
     private RectTransform rect;
-    private Image droppedImage; // 드롭된 이미지를 저장할 변수
+    public Image droppedImage; // 드롭된 이미지를 저장할 변수
     private Transform originalPosition; // 드래그된 이미지의 원래 부모를 저장할 변수
+    public int EquippedIndex;
 
     private void Awake()
     {
@@ -33,8 +34,11 @@ public class Droppable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             Transform draggedObject = eventData.pointerDrag.transform;
             Image draggedImage = draggedObject.GetComponent<Image>();
+            int ID = draggedObject.GetComponent<Draggable>().ID;
+            MarbleInfo temp = SlotManager.Instance.Inventory.Find(obj => obj.MarbleData.MarbleID == ID);
+            temp.IsEquipped = true;
 
-            if (droppedImage == null) // 처음 이미지 드롭
+            if (droppedImage.sprite == null) // 처음 이미지 드롭
             {
                 // 새로운 이미지 추가
                 droppedImage = draggedImage;
@@ -45,9 +49,11 @@ public class Droppable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             else if (draggedObject != droppedImage.transform) // 다른 이미지 드롭
             {
                 // 원래 이미지 자리로 되돌리기
-                droppedImage.GetComponent<Draggable>().Reset();
-                //droppedImage.transform.SetParent(originalPosition);
-                //droppedImage.transform.GetComponent<RectTransform>().position = originalPosition.GetComponent<RectTransform>().position;
+                droppedImage.GetComponent<Draggable>().ResetOrigin();
+
+                int UnID = droppedImage.GetComponent<Draggable>().ID;
+                MarbleInfo Untemp = SlotManager.Instance.Inventory.Find(obj => obj.MarbleData.MarbleID == UnID);
+                Untemp.IsEquipped = false;
 
                 // 새로운 이미지 추가
                 droppedImage = draggedImage;

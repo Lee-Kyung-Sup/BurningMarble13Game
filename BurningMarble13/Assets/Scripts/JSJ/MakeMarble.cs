@@ -9,6 +9,9 @@ public class MakeMarble : MonoBehaviour
     public GameObject MarbleChoiceUI;
     //public Transform ButtonTransform;
 
+    [HideInInspector]
+    public static GameObject pushObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +35,24 @@ public class MakeMarble : MonoBehaviour
     {
         MarbleChoiceUI.SetActive(true);
     }
-    public void ButtonPosition(Transform button)
+    public void MarbleChoiceClose()
     {
-        MarbleChoiceUI.transform.position = button.position;
-        MarbleChoiceUI.transform.position = new Vector3(MarbleChoiceUI.transform.position.x, MarbleChoiceUI.transform.position.y + 150);
+        MarbleChoiceUI.SetActive(false);
+    }
+    public void ButtonPosition(GameObject button)
+    {
+        MarbleChoiceUI.transform.position = button.transform.position;
+        MarbleChoiceUI.transform.position = new Vector3(MarbleChoiceUI.transform.position.x, MarbleChoiceUI.transform.position.y - 110);
 
+        if(pushObj == null )
+        {
+            pushObj = button;
+        }
+        else
+        {
+            pushObj = null;
+            pushObj = button; 
+        }
+        
     }
 }

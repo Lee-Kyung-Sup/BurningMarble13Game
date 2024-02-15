@@ -1227,6 +1227,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461458917}
   m_CullTransparentMesh: 1
+--- !u!1 &1533320960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533320962}
+  - component: {fileID: 1533320961}
+  m_Layer: 0
+  m_Name: SlotManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1533320961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533320960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe63784b9d883cc4fa4006286e204e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory:
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: e8e28d33dceb560469759f7ad444afdc, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: 761d13298c092164599550c5a45e48d6, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: 2277c28bdb153df43b2465059c0506bb, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: 59ae3a6abdee4db45986c0558a3d3808, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: e3af1c9d5bf01c1419b30c706458545e, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: c36a69d4f78bd8e47bb75f4715d554dd, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: 6b1d4b5f2d0472c468edb0d8b6859d44, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: a7f7bf8695adb6a49ad59b07ec24c1e3, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: d3fd14d078158f94eb85104d17c3459e, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: ebdc82b1488f5a24ca5bebcb1465cdac, type: 2}
+  - IsEquipped: 0
+    MarbleData: {fileID: 11400000, guid: 01768e900bdfc0744ba42c6fb83914a5, type: 2}
+--- !u!4 &1533320962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533320960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534447249
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,8 +39,20 @@ public class FireBullet : Bullet
     //적이랑 총알이 충돌했을때 / 충돌한 적 주변으로(충돌한 적주변 인식) / 스플래시 화염데미지(데미지)
     protected override void ApplyDamage()
     {
-        
+        // 적 주변으로 스플래시 데미지 적용
+        foreach (Monster monster in monsterslist)
+        {
+            if (monster != null)
+            {
+                // 여기에서 각 몬스터에게 스플래시 데미지를 적용하는 로직을 작성하세요.
+                // 예를 들어, monster.TakeDamage(splashDamage);
+                monster.Damage(1f);
+                //가짜 데이터
+            }
+        }
+
     }
-
-
 }
+
+
+
