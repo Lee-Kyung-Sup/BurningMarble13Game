@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f9ab3dd8df5461ca6a2d029c597756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  splashRange: 1
 --- !u!58 &1689349594653311184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -76,7 +78,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
