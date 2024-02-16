@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  count: 3
   splashRange: 3
 --- !u!58 &4888417953256319104
 CircleCollider2D:
