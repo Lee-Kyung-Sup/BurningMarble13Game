@@ -46,7 +46,7 @@ public class FireBullet : Bullet
             {
                 // 여기에서 각 몬스터에게 스플래시 데미지를 적용하는 로직을 작성하세요.
                 // 예를 들어, monster.TakeDamage(splashDamage);
-                monster.Damage(1f);
+                monster.Damage(damage);
                 //가짜 데이터
             }
         }
