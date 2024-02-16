@@ -15,6 +15,8 @@ public class MakeMarble : MonoBehaviour
     [SerializeField]
     private GameObject[] MarblePrefabs;
 
+    Camera mainCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class MakeMarble : MonoBehaviour
         //Marble.transform.position = transform.position;
         //    //Vector2(41.9000015, -67.1999969, 0);
         //Marble.transform.position = MarbleButton.transform.position;
+
+        mainCamera = Camera.main;
     }
 
     void Update()
@@ -60,11 +64,14 @@ public class MakeMarble : MonoBehaviour
     }
     public void GetMarblidId(int index)
     {
-        int ID = EquippedMarble.IDnum[index];
+        int ID = EquippedMarble.IDnum[index]-1;
 
         GameObject clone = Instantiate(MarblePrefabs[ID]);
 
-         clone.transform.position = MarbleChoiceUI.transform.position.normalized;
+        Vector3 pos = mainCamera.ScreenToWorldPoint(MarbleChoiceUI.transform.position);
+        pos.z = 0;
+        clone.transform.position = pos;
+
 
     }
 

@@ -137,7 +137,6 @@ MonoBehaviour:
   attackRange: 3
   bulletprefeb: {fileID: 3260172481834325798, guid: ca923417b229f4cf7ba63a45d9985bef,
     type: 3}
-  testMonster: {fileID: 0}
 --- !u!50 &3876928410370709596
 Rigidbody2D:
   serializedVersion: 4
