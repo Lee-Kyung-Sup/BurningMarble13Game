@@ -7,5 +7,7 @@ using UnityEngine;
 public class MarbleData : ScriptableObject
 {
     public int MarbleID;
+    public string MarbleName;
     public Sprite MarbleImage;
+    public string MarbleDescription;
 }
