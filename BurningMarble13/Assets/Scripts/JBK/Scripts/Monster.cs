@@ -8,6 +8,7 @@ public class Monster : MonoBehaviour
     private Transform[] wayPoints;
     private int currentIndex = 0;
     private MonsterMovement movement;
+    public bool isbose = false;
     //**private WaveSystem waveSystem;    
 
     [HideInInspector]

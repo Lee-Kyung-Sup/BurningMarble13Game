@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3819054921853258348}
-  - component: {fileID: 8780428038312032658}
+  - component: {fileID: 8785488230698230680}
   m_Layer: 0
   m_Name: IceBullet
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8780428038312032658
+--- !u!114 &8785488230698230680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3260172481834325798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4161a7f3e87934dcaaa74c8da6a79082, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e95a9024a7a544cda1c2e9c232e76a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
+  icecount: 5
 --- !u!1 &6178951515078447487
 GameObject:
   m_ObjectHideFlags: 0
