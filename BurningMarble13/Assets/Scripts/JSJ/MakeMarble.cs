@@ -30,7 +30,7 @@ public class MakeMarble : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void MarbleOpen()
@@ -51,27 +51,30 @@ public class MakeMarble : MonoBehaviour
         MarbleChoiceUI.transform.position = button.transform.position;
         MarbleChoiceUI.transform.position = new Vector3(MarbleChoiceUI.transform.position.x, MarbleChoiceUI.transform.position.y - 110);
 
-        if(pushObj == null )
+        if (pushObj == null)
         {
             pushObj = button;
         }
         else
         {
             pushObj = null;
-            pushObj = button; 
+            pushObj = button;
         }
-        
+
     }
     public void GetMarblidId(int index)
     {
-        int ID = EquippedMarble.IDnum[index]-1;
+        int ID = EquippedMarble.IDnum[index] - 1;
 
         GameObject clone = Instantiate(MarblePrefabs[ID]);
 
-        Vector3 pos = mainCamera.ScreenToWorldPoint(MarbleChoiceUI.transform.position);
-        pos.z = 0;
-        clone.transform.position = pos;
+        Vector3 tempPos = MarbleChoiceUI.transform.position;
+        tempPos.y += 110;
 
+        Vector3 pos = mainCamera.ScreenToWorldPoint(tempPos);
+        pos.z = 0;
+
+        clone.transform.position = pos;
 
     }
 
