@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: MarbleData10
   m_EditorClassIdentifier: 
   MarbleID: 10
+  MarbleName: "\uC608\uC2DC1"
   MarbleImage: {fileID: 21300000, guid: 4d69c6b368ea53443a84640b5693dbcc, type: 3}
+  MarbleDescription: "\uC608\uC2DC1"
