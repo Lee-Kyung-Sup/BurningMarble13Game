@@ -67,7 +67,7 @@ public class MonsterSpawner : MonoBehaviour
                 else//Boss
                 {  
                     currentSpawnCount = maxSpawnCount;
-                    monster.hp = WaveSystem.currentWave * 1000;
+                    monster.hp = WaveSystem.currentWave * 400;
                     monster.isbose = true;
                     //스케일커지는거
                 }

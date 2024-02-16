@@ -21,7 +21,7 @@ public class Stage : MonoBehaviour
 
     public void ModeChoice(int mode)
     {
-        if (clearCheck = GameManager.isFirstClear.All(x => x == true))
+        /*if (clearCheck = GameManager.isFirstClear.All(x => x == true))
         {
             switch (mode)
             {
@@ -64,6 +64,28 @@ public class Stage : MonoBehaviour
                 default:
                     return;
             }
+        }*/
+
+        switch (mode)
+        {
+            case 1:
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            case 2:
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            case 3:
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            case 4://인피니티모드 //이거 사용
+                SceneManager.LoadScene("GameScene");
+                GameManager.choioceStageNum = mode;
+                break;
+            default:
+                return;
         }
     }
 
