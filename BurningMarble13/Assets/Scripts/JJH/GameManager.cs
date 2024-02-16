@@ -240,6 +240,7 @@ public class GameManager : MonoBehaviour
         {
             gold -= 100;
             MakeMarble.pushObj.SetActive(false);
+            //
             makeMarble.MarbleChoiceClose();//???
         }
         else
