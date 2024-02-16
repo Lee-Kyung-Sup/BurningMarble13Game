@@ -51,4 +51,6 @@ public class Bullet : MonoBehaviour
         monster = _monster;
         TargetTrans = monster.transform;
     }
+
+    
 }
