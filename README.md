@@ -10,7 +10,7 @@ Unity 게임 개발 팀 프로젝트
 
 ## 멤버 구성
 팀장 진보경: Game UI, Inventory, MonsterSpawn   
-팀원 조수정:  
+팀원 조수정: GameManager
 팀원 장지희: GameManager   
 팀원 염고운: Marble Supervise   
 팀원 이경섭: Game UI, SceneManager
