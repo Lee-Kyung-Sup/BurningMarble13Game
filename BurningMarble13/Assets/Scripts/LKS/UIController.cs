@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     {
         if (IsOpen == false)
         {
-            sideBar.transform.DOLocalMoveX(800, 1.0f).SetEase(Ease.OutQuad);
+            sideBar.transform.DOLocalMoveX(765, 1.0f).SetEase(Ease.OutQuad);
             IsOpen = true;
             Debug.Log("����");
         }
