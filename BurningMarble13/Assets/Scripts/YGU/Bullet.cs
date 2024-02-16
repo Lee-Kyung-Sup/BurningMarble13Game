@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Monster monster;
+    protected Monster monster;
     Transform TargetTrans;
     //총알이 몬스터를 따라가서 쏘게하기
     public float speed;
     //날아가는 속도
-    
+    protected float damage;
 
 
     // Update is called once per frame
@@ -42,11 +42,12 @@ public class Bullet : MonoBehaviour
     protected virtual void ApplyDamage()
     {
         //몬스터에게 데미지 주기
-        monster.Damage(1f);
+        monster.Damage(damage);
     }
 
-    public void Initialize(Monster _monster)
+    public void Initialize(Monster _monster,float _damage)
     {
+        damage = _damage;
         monster = _monster;
         TargetTrans = monster.transform;
     }
