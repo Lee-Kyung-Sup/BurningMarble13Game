@@ -12,6 +12,9 @@ public class MakeMarble : MonoBehaviour
     [HideInInspector]
     public static GameObject pushObj;
 
+    [SerializeField]
+    private GameObject[] MarblePrefabs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,4 +58,15 @@ public class MakeMarble : MonoBehaviour
         }
         
     }
+    public void GetMarblidId(int index)
+    {
+        int ID = EquippedMarble.IDnum[index];
+
+        GameObject clone = Instantiate(MarblePrefabs[ID]);
+
+         clone.transform.position = MarbleChoiceUI.transform.position.normalized;
+
+    }
+
+
 }

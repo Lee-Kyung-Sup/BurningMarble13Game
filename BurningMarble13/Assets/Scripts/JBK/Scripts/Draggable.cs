@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private Transform canvas; //UI °¡ ¼Ò¼ÓµÇ¾î ÀÖ´Â ÃÖ»ó´ÜÀÇ Canvas
-    public Transform previousParent; // ÇØ´ç ¿ÀºêÁ§Æ®°¡ Á÷Àü¿¡ ¼Ò¼ÓµÇ¾î ÀÖ¾ú´ø ºÎ¸ð
-    public Transform originalParent; // ÇØ´ç ¿ÀºêÁ§Æ®°¡ Á÷Àü¿¡ ¼Ò¼ÓµÇ¾î ÀÖ¾ú´ø ºÎ¸ð
-    private RectTransform rect; // UI À§Ä¡ Á¦¾î¸¦ À§ÇÑ
+    private Transform canvas; //UI ï¿½ï¿½ ï¿½Ò¼ÓµÇ¾ï¿½ ï¿½Ö´ï¿½ ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ Canvas
+    public Transform previousParent; // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ÓµÇ¾ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½
+    public Transform originalParent; // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ÓµÇ¾ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½
+    private RectTransform rect; // UI ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½
     public int ID;
 
     private void Awake()
@@ -28,8 +28,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         previousParent = transform.parent;
         GetComponent<Image>().raycastTarget = false;
-        transform.SetParent(canvas); // ºÎ¸ð ¿ÀºêÁ§Æ®¸¦ canvas·Î
-        transform.SetAsLastSibling(); // °¡Àå ¾Õ¿¡ º¸ÀÌµµ·Ï
+        transform.SetParent(canvas); // ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ canvasï¿½ï¿½
+        transform.SetAsLastSibling(); // ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½
     }
 
     public void OnDrag(PointerEventData eventData)
